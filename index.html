@@ -360,76 +360,192 @@
   </div>
 </section>
 
-    <!-- 5) 임플란트 : Swiper -->
-    <section class="section slider slider--dark" id="implant">
-      <div class="container">
-        <div class="section__head section__head--center section__head--light">
-          <p class="section__eyebrow">Seoul Sion Dental Clinic</p>
-          <h2 class="section__title">임플란트</h2>
-          <p class="section__sub">치아 기능 회복을 위한 정확한 계획과 안전한 술식</p>
-        </div>
+<!-- 4) IMPLANT (Swiper) -->
+<section class="section implant" id="implant" aria-label="임플란트">
+  <div class="implant__bg" aria-hidden="true"></div>
 
-        <div class="slider__wrap">
-          <div class="swiper implantSwiper">
-            <div class="swiper-wrapper">
+  <div class="container implant__head">
+    <p class="implant__eyebrow">Seoul Sion Dental Clinic</p>
+    <h2 class="implant__title">임플란트</h2>
+    <p class="implant__sub">
+      치아가 상실된 부위의 잇몸 뼈에 인공 치근을 식립하고<br>
+      보철물을 연결하여, 자연 치아의 기능과 외관을 회복하는 시술입니다
+    </p>
+  </div>
 
-              <div class="swiper-slide">
-                <div class="slidecard">
-                  <div class="slidecard__media">
-                    <img src="./assets/implant-1.jpg" alt="임플란트 슬라이드 1" onerror="this.style.display='none'" />
-                    <div class="media__placeholder" aria-hidden="true">이미지</div>
-                  </div>
-                  <div class="slidecard__content">
-                    <p class="slidecard__num">01</p>
-                    <h3 class="slidecard__title">정밀 진단 기반 계획</h3>
-                    <p class="slidecard__desc">
-                      구강 상태에 맞춰 필요한 검사와 진단을 진행하고, 개인별 치료 계획을 수립합니다.
-                    </p>
-                  </div>
-                </div>
-              </div>
+  <div class="implantFrame">
+    <div class="swiper implantSwiper">
+      <div class="swiper-wrapper">
 
-              <div class="swiper-slide">
-                <div class="slidecard">
-                  <div class="slidecard__media">
-                    <img src="./assets/implant-2.jpg" alt="임플란트 슬라이드 2" onerror="this.style.display='none'" />
-                    <div class="media__placeholder" aria-hidden="true">이미지</div>
-                  </div>
-                  <div class="slidecard__content">
-                    <p class="slidecard__num">02</p>
-                    <h3 class="slidecard__title">안전한 수술 프로토콜</h3>
-                    <p class="slidecard__desc">
-                      멸균·감염관리 프로세스에 따라 안전한 치료 환경을 유지합니다.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="slidecard">
-                  <div class="slidecard__media">
-                    <img src="./assets/implant-3.jpg" alt="임플란트 슬라이드 3" onerror="this.style.display='none'" />
-                    <div class="media__placeholder" aria-hidden="true">이미지</div>
-                  </div>
-                  <div class="slidecard__content">
-                    <p class="slidecard__num">03</p>
-                    <h3 class="slidecard__title">사후관리 시스템</h3>
-                    <p class="slidecard__desc">
-                      치료 후 유지관리를 통해 장기적으로 편안한 상태를 돕습니다.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
+        <!-- Slide 01 -->
+        <div class="swiper-slide">
+          <article class="icard">
+            <div class="icard__media">
+              <img src="./img/clinic01.png" alt="임플란트 이미지 1" onerror="this.style.display='none'">
+              <div class="media__placeholder" aria-hidden="true">이미지</div>
             </div>
 
-            <div class="swiper-button-prev implantPrev" aria-label="이전"></div>
-            <div class="swiper-button-next implantNext" aria-label="다음"></div>
-            <div class="swiper-pagination implantPagination"></div>
-          </div>
+            <div class="icard__body">
+              <div class="icard__no">01</div>
+              <div class="icard__pill">잇몸뼈 증대술</div>
+              <p class="icard__desc">
+                치조골을 보충하거나 이식하여 뼈의 양과 질을 높임으로써<br>임플란트 식립이 가능한 환경을 만드는 시술입니다<br>
+                
+              </p>
+            </div>
+          </article>
         </div>
+
+        <!-- Slide 02 -->
+        <div class="swiper-slide">
+          <article class="icard">
+            <div class="icard__media">
+              <img src="./img/clinic02.png" alt="임플란트 이미지 2" onerror="this.style.display='none'">
+              <div class="media__placeholder" aria-hidden="true">이미지</div>
+            </div>
+
+            <div class="icard__body">
+              <div class="icard__no">02</div>
+              <div class="icard__pill">정밀 진단</div>
+              <p class="icard__desc">
+                3D 기반 분석으로 골 상태·신경 위치 등을 확인하여<br>
+                안정적인 식립 계획을 수립합니다.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <!-- Slide 03 -->
+        <div class="swiper-slide">
+          <article class="icard">
+            <div class="icard__media">
+              <img src="./img/implant-03.jpg" alt="임플란트 이미지 3" onerror="this.style.display='none'">
+              <div class="media__placeholder" aria-hidden="true">이미지</div>
+            </div>
+
+            <div class="icard__body">
+              <div class="icard__no">03</div>
+              <div class="icard__pill">맞춤 계획</div>
+              <p class="icard__desc">
+                치아 배열·교합을 고려해 기능과 심미를 함께 반영한<br>
+                개인 맞춤 치료를 진행합니다.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <!-- Slide 04 -->
+        <div class="swiper-slide">
+          <article class="icard">
+            <div class="icard__media">
+              <img src="./img/implant-04.jpg" alt="임플란트 이미지 4" onerror="this.style.display='none'">
+              <div class="media__placeholder" aria-hidden="true">이미지</div>
+            </div>
+
+            <div class="icard__body">
+              <div class="icard__no">04</div>
+              <div class="icard__pill">통증/불안 완화</div>
+              <p class="icard__desc">
+                환자 상태에 맞는 통증 관리와 단계별 케어로<br>
+                치료 부담을 줄입니다.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <!-- Slide 05 -->
+        <div class="swiper-slide">
+          <article class="icard">
+            <div class="icard__media">
+              <img src="./img/implant-05.jpg" alt="임플란트 이미지 5" onerror="this.style.display='none'">
+              <div class="media__placeholder" aria-hidden="true">이미지</div>
+            </div>
+
+            <div class="icard__body">
+              <div class="icard__no">05</div>
+              <div class="icard__pill">위생 시스템</div>
+              <p class="icard__desc">
+                진료 환경과 기구 관리 시스템을 통해<br>
+                위생적이고 안전한 진료를 지향합니다.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <!-- Slide 06 -->
+        <div class="swiper-slide">
+          <article class="icard">
+            <div class="icard__media">
+              <img src="./img/implant-06.jpg" alt="임플란트 이미지 6" onerror="this.style.display='none'">
+              <div class="media__placeholder" aria-hidden="true">이미지</div>
+            </div>
+
+            <div class="icard__body">
+              <div class="icard__no">06</div>
+              <div class="icard__pill">재료/보철 퀄리티</div>
+              <p class="icard__desc">
+                내구성과 심미를 고려한 보철 제작으로<br>
+                자연스러운 결과를 목표로 합니다.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <!-- Slide 07 -->
+        <div class="swiper-slide">
+          <article class="icard">
+            <div class="icard__media">
+              <img src="./img/implant-07.jpg" alt="임플란트 이미지 7" onerror="this.style.display='none'">
+              <div class="media__placeholder" aria-hidden="true">이미지</div>
+            </div>
+
+            <div class="icard__body">
+              <div class="icard__no">07</div>
+              <div class="icard__pill">사후 관리</div>
+              <p class="icard__desc">
+                치료 후 관리 프로그램을 통해<br>
+                장기 안정성을 돕습니다.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <!-- Slide 08 -->
+        <div class="swiper-slide">
+          <article class="icard">
+            <div class="icard__media">
+              <img src="./img/implant-08.jpg" alt="임플란트 이미지 8" onerror="this.style.display='none'">
+              <div class="media__placeholder" aria-hidden="true">이미지</div>
+            </div>
+
+            <div class="icard__body">
+              <div class="icard__no">08</div>
+              <div class="icard__pill">케이스별 플랜</div>
+              <p class="icard__desc">
+                잇몸·뼈 상태, 전신 컨디션 등을 고려해<br>
+                케이스별 최적의 방법을 제안합니다.
+              </p>
+            </div>
+          </article>
+        </div>
+
       </div>
-    </section>
+
+      <!-- 좌/우 버튼(이미지처럼 섹션 좌우에 크게) -->
+      <button class="implantPrev" type="button" aria-label="이전">‹</button>
+      <button class="implantNext" type="button" aria-label="다음">›</button>
+    </div>
+
+    <!-- 하단 진행바 + 카운트 -->
+    <div class="implantProgress" aria-label="슬라이드 진행">
+      <div class="implantProgress__bar">
+        <span class="implantProgress__fill" style="width:12.5%"></span>
+      </div>
+      <div class="implantProgress__count"><span id="implantCurrent">1</span>/<span id="implantTotal">8</span></div>
+    </div>
+  </div>
+</section>
+
 
     <!-- 6) 진료소개 : Swiper -->
     <section class="section treatments" id="treatments">
@@ -573,7 +689,6 @@
             <dt>전화</dt>
             <dd>
               <a class="location__tel" href="tel:055-715-2275">055.715.2275</a>
-              <span class="location__hint">진료 중에는 통화가 늦어질 수 있어요</span>
             </dd>
           </div>
 

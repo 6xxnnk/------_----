@@ -839,6 +839,245 @@ button{font:inherit}
   .greeting__media{ height: 260px; border-radius: 22px; }
 }
 
+/* =========================================================
+  IMPLANT (Swiper)
+========================================================= */
+/* =========================================================
+  IMPLANT (Swiper)
+========================================================= */
+.implant{
+  position: relative;
+  padding: 84px 0 72px;
+  background: #0e5f33;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* 배경 패턴 느낌(이미지의 사선) */
+.implant__bg{
+  position:absolute;
+  inset:-120px -120px -120px -120px;
+  background:
+    radial-gradient(1200px 520px at 20% 30%, rgba(255,255,255,.12), transparent 60%),
+    linear-gradient(135deg, rgba(255,255,255,.10) 0%, rgba(255,255,255,0) 42%),
+    linear-gradient(315deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,0) 42%);
+  opacity: .55;
+  pointer-events:none;
+}
+
+.implant__head{
+  position: relative;
+  text-align:center;
+  z-index: 1;
+}
+
+.implant__eyebrow{
+  margin:0 0 8px;
+  font-size: 12px;
+  letter-spacing: .14em;
+  opacity: .95;
+}
+
+.implant__title{
+  margin:0 0 12px;
+  font-size: 36px;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+}
+
+.implant__sub{
+  margin: 0 auto;
+  max-width: 720px;
+  font-size: 14px;
+  line-height: 1.7;
+  opacity: .92;
+  word-break: keep-all;
+}
+
+/* 프레임 */
+.implantFrame{
+  position: relative;
+  max-width: 1200px;
+  margin: 34px auto 0;
+  padding: 0 24px;
+  z-index: 1;
+}
+
+/* swiper 높이 */
+.implantSwiper{
+  position: relative;
+  padding: 0 64px; /* 좌우 버튼 공간 */
+}
+
+/* 카드 */
+.icard{
+  width: min(720px, 100%);
+  margin: 0 auto;
+  background: #fff;
+  color: #1b1b1b;
+  border-radius: 16px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  align-items: stretch;
+  box-shadow: 0 18px 44px rgba(0,0,0,.18);
+}
+
+/* 왼쪽 이미지 */
+.icard__media{
+  position: relative;
+  background: #f2f2f2;
+}
+.icard__media img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display:block;
+}
+.icard__media .media__placeholder{
+  min-height: 180px;
+}
+
+/* 오른쪽 텍스트 */
+.icard__body{
+  padding: 26px 26px 24px;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.icard__no{
+  font-size: 18px;
+  font-weight: 900;
+  color: rgba(27,27,27,.55);
+  letter-spacing: .06em;
+}
+
+.icard__pill{
+  display:inline-flex;
+  align-items:center;
+  width: fit-content;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #0e6230;
+  color:#fff;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.icard__desc{
+  margin: 2px 0 0;
+  font-size: 13px;
+  line-height: 1.7;
+  color: rgba(27,27,27,.82);
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+/* 좌우 버튼(섹션 좌우에 크게) */
+.implantPrev,
+.implantNext{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.35);
+  background: rgba(0,0,0,.12);
+  color: #fff;
+  cursor: pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size: 34px;
+  line-height: 1;
+  z-index: 5;
+}
+.implantPrev{ left: 6px; }
+.implantNext{ right: 6px; }
+
+.implantPrev:hover,
+.implantNext:hover{
+  background: rgba(0,0,0,.22);
+}
+
+/* 하단 진행 */
+.implantProgress{
+  margin: 22px auto 0;
+  width: min(720px, 100%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap: 14px;
+}
+
+.implantProgress__bar{
+  flex: 1;
+  height: 3px;
+  background: rgba(255,255,255,.28);
+  border-radius: 999px;
+  overflow:hidden;
+}
+.implantProgress__fill{
+  display:block;
+  height: 100%;
+  background: rgba(255,255,255,.92);
+  width: 12.5%;
+}
+
+.implantProgress__count{
+  font-size: 12px;
+  opacity: .92;
+  letter-spacing: .02em;
+  min-width: 44px;
+  text-align:right;
+}
+
+/* =========================
+  TABLET
+========================= */
+@media (max-width: 1024px){
+  .implant{ padding: 70px 0 62px; }
+  .implant__title{ font-size: 32px; }
+  .implantFrame{ padding: 0 18px; }
+  .implantSwiper{ padding: 0 52px; }
+
+  .icard{
+    grid-template-columns: 240px 1fr;
+  }
+}
+
+/* =========================
+  MOBILE (iPhone SE 375 포함)
+========================= */
+@media (max-width: 480px){
+  .implant{ padding: 58px 0 52px; }
+  .implant__title{ font-size: 28px; }
+  .implant__sub{ font-size: 13px; }
+
+  .implantFrame{ padding: 0 14px; }
+  .implantSwiper{ padding: 0 44px; }
+
+  .icard{
+    grid-template-columns: 1fr;
+    width: min(340px, 100%);
+  }
+  .icard__media{
+    height: 170px;
+  }
+  .icard__body{
+    padding: 18px 18px 18px;
+  }
+
+  .implantPrev,
+  .implantNext{
+    width: 38px;
+    height: 38px;
+    font-size: 30px;
+  }
+}
 
 /* =========================================================
   6) SLIDERS (Desktop)
@@ -936,12 +1175,7 @@ button{font:inherit}
 .equipment__content p{margin:0 0 12px; color:var(--muted)}
 .bullets{margin:0; padding-left:18px; color:rgba(34,73,46,.85)}
 
-/* =========================================================
-  7) LOCATION / FOOTER (Desktop)
-========================================================= */
-/* =========================
-   LOCATION (오시는길)
-========================= */
+
 /* =========================================================
   8) LOCATION
 ========================================================= */
