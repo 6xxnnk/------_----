@@ -204,81 +204,166 @@
       </div>
     </section>
 
-    <!-- 3) 의료진 소개 -->
-    <section class="section doctors" id="doctors">
-      <div class="container">
-        <div class="section__head section__head--center">
-          <p class="section__eyebrow">Seoul Sion Dental Clinic</p>
-          <h2 class="section__title">의료진 소개</h2>
-          <p class="section__sub">각 분야 전문의 협진 · 풍부한 임상 경험 기반의 진료</p>
-        </div>
+   <!-- 3) 의료진 소개 (Swiper) -->
+<section class="section doctors" id="doctors">
+  <div class="container">
+    <div class="section__head section__head--center">
+      <p class="section__eyebrow">Seoul Sion Dental Clinic</p>
+      <h2 class="section__title">의료진 소개</h2>
+    </div>
+  </div>
 
-        <div class="doctors__cards">
-          <article class="doctor card">
-            <div class="doctor__photo">
-              <img src="./assets/doctor-1.jpg" alt="의료진 사진 1" onerror="this.style.display='none'" />
-              <div class="media__placeholder" aria-hidden="true">의료진 사진</div>
+  <!-- ✅ 슬라이드 프레임(1920까지) -->
+  <div class="doctorsFrame">
+    <!-- 우측 워터마크(로고 패턴) -->
+    <div class="doctors__wm" aria-hidden="true"></div>
+
+    <div class="swiper doctorsSwiper">
+      <div class="swiper-wrapper">
+
+        <!-- Slide 1 -->
+        <div class="swiper-slide">
+          <article class="dcard">
+            <div class="dcard__top">
+              <p class="dcard__dept">치주과, 영상치의학과, 통합치의학과 전문의</p>
+              <h3 class="dcard__name">대표원장 <strong>최호근</strong></h3>
             </div>
-            <div class="doctor__info">
-              <h3>대표원장 홍길동</h3>
-              <p class="doctor__role">치주·보철·통합진료</p>
-              <ul class="doctor__spec">
-                <li>· 학회/인증/경력 1</li>
-                <li>· 학회/인증/경력 2</li>
-                <li>· 학회/인증/경력 3</li>
-              </ul>
+
+            <div class="dcard__grid">
+              <div class="dcard__photo">
+                <img src="./img/doctor-1.jpg" alt="의료진 사진" onerror="this.style.display='none'">
+                <div class="media__placeholder" aria-hidden="true">의료진 사진</div>
+              </div>
+
+              <div class="dcard__spec">
+                <div class="dcard__col">
+                  <p class="dcard__label">(현)</p>
+                  <ul class="dcard__list">
+                    <li>대한구강악안면임플란트학회 정회원</li>
+                    <li>국제임플란트학회(International Team for Implantology) 정회원</li>
+                    <li>대한치주과학회 정회원</li>
+                    <li>대한영상치의학회 정회원</li>
+                    <li>대한통합치의학회 정회원</li>
+                    <li>유럽두경부영상의학회(European Society of Head and Neck Radiology)정회원</li>
+                    <li>대한치과의사학회 우수발표상</li>
+                    <li>대한진단검사치의학회 최우수발표상</li>
+                    <li>대한영상치의학회 우수발표상</li>
+                  </ul>
+                </div>
+
+                <div class="dcard__col">
+                  <p class="dcard__label">(전)</p>
+                  <ul class="dcard__list">
+                    <li>서울대학교 치의학대학원 외래교수</li>
+                    <li>보건복지부 인증 치주과 전문의</li>
+                    <li>보건복지부 인증 영상치의학과 전문의</li>
+                    <li>보건복지부 인증 통합치의학과 전문의</li>
+                    <li>(2024년3월 보건복지부 답변 기준 전국유일 치과전문의3개)</li>
+                    <li>서울대학교 치과병원 전공의과정 수료</li>
+                    <li>서울대학교 치의학 박사 수료</li>
+                    <li>17회 영상치의학과 전문의 시험 전국수석</li>
+                    <li>전 육군 제1기갑여단 의무대치과장</li>
+                    <li>전 육군 제8기동사단 의무대치과장</li>
+                    <li>육군본부 제대 인정 우수치과군의관(인사참모부장 표창)</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </article>
+        </div>
 
-          <article class="doctor card">
-            <div class="doctor__photo">
-              <img src="./assets/doctor-2.jpg" alt="의료진 사진 2" onerror="this.style.display='none'" />
-              <div class="media__placeholder" aria-hidden="true">의료진 사진</div>
+        <!-- Slide 2 -->
+        <div class="swiper-slide">
+          <article class="dcard dcard--reverse">
+            <div class="dcard__top">
+              <p class="dcard__dept">치과보철과, 통합치의학과 전문의</p>
+              <h3 class="dcard__name">원장 <strong>김은경</strong></h3>
             </div>
-            <div class="doctor__info">
-              <h3>원장 김시온</h3>
-              <p class="doctor__role">교정·심미·보존</p>
-              <ul class="doctor__spec">
-                <li>· 학회/인증/경력 1</li>
-                <li>· 학회/인증/경력 2</li>
-                <li>· 학회/인증/경력 3</li>
-              </ul>
+
+            <div class="dcard__grid">
+              <div class="dcard__photo">
+                <img src="./img/doctor-2.jpg" alt="의료진 사진" onerror="this.style.display='none'">
+                <div class="media__placeholder" aria-hidden="true">의료진 사진</div>
+              </div>
+
+              <div class="dcard__spec">
+                <div class="dcard__col">
+                  <p class="dcard__label">(현)</p>
+                  <ul class="dcard__list">
+                    <li>보건복지부 인증 치과보철과 전문의</li>
+                    <li>보건복지부 인증 통합치의학과 전문의</li>
+                    <li>대한치과보철학회 인정의</li>
+                    <li>단국대학교 치과병원 전공의과정 수료</li>
+                    <li>단국대학교 치의학 석사</li>
+                    <li>대한치과보철학회 정회원</li>
+                    <li>대한턱관절교합학회 정회원</li>
+                    <li>대한통합치의학회 정회원</li>
+                    <li>대한심미치과학회 정회원</li>
+                  </ul>
+                </div>
+
+
+            
+              </div>
             </div>
           </article>
         </div>
+
       </div>
-    </section>
 
-    <!-- 4) 의료진 인사 -->
-    <section class="section greeting" id="greeting">
-      <div class="container">
-        <div class="greeting__grid">
-          <div class="greeting__text">
-            <p class="section__eyebrow">Seoul Sion Dental Clinic</p>
-            <h2 class="section__title">의료진 인사</h2>
+       <button class="doctorsPrev" type="button" aria-label="이전">‹</button>
+  <button class="doctorsNext" type="button" aria-label="다음">›</button>
 
-            <p class="greeting__body">
-              안녕하세요, 서울시온치과입니다.<br/>
-              저희는 “정확한 진단”과 “기본에 충실한 치료”를 최우선으로 생각합니다.
-            </p>
-            <p class="greeting__body">
-              환자분의 불안을 덜어드리고, 치료 후에도 오래 유지될 수 있도록
-              처음부터 끝까지 책임감 있게 진료하겠습니다.
-            </p>
+  <div class="swiper-pagination"></div>
+  </div>
+</section>
+<!-- 4) 인사말 -->
+<section class="section greeting" id="greeting" aria-label="인사말">
+  <div class="container">
+    <div class="greeting__grid">
+      <!-- LEFT: copy -->
+      <div class="greeting__text">
+        <h2 class="greeting__title">안녕하세요,</h2>
+        <p class="greeting__lead">
+          서울시온치과 대표원장 부부 최호근, 김은경입니다.
+        </p>
 
-            <div class="greeting__sign">
-              <span class="greeting__name">서울시온치과 대표원장</span>
-              <strong>홍길동</strong>
-            </div>
-          </div>
+        <div class="greeting__body">
+          <p>
+            저희는 진료실에 들어설 때마다 '나에게는 한 번의 진료이지만, <br>
+환자분께는 평생 함께할 소중한 몸의 일부’라는
+사실을 마음 깊이 새깁니다
+          </p>
+          <p>
+           지난 20여 년의 공부는 단순히 기술을 익히는 과정이 아니라, <br>
+환자에게 해가 되지 않는 '옳은 치료'를 분별하는 시간이었습니다
 
-          <figure class="greeting__media card">
-            <img src="./assets/greeting.jpg" alt="의료진 단체 사진" onerror="this.style.display='none'" />
-            <div class="media__placeholder" aria-hidden="true">의료진/스탭 이미지 영역</div>
-          </figure>
+
+          </p>
+          <p>
+            빠르고 쉬운 길보다는 시간이 걸리더라도<br>
+결과가 오래 남는 정석의 길을 가고자 합니다
+          </p>
+          <p>
+            치료를 서두르기보다 필요한 이유를 충분히 설명해 드리고 <br>
+지금의 선택이 환자분의 미래에 어떤 영향을 줄지 함께 고민하겠습니다
+          </p>
+          <p>
+            환자의 시간을 존중하며, 치과의사로서 내린 선택에 대해 <br>
+끝까지 책임을 다하는 정직한 동반자가 되겠습니다
+          </p>
         </div>
+<!-- 
+        <p class="greeting__sign">대표원장 최호근 · 김은경</p> -->
       </div>
-    </section>
+
+      <!-- RIGHT: image card -->
+      <figure class="greeting__media" aria-label="의료진 이미지">
+        <img src="./img/greeting-doctors.jpg" alt="서울시온치과 의료진" />
+      </figure>
+    </div>
+  </div>
+</section>
 
     <!-- 5) 임플란트 : Swiper -->
     <section class="section slider slider--dark" id="implant">
@@ -508,6 +593,9 @@
 
   <!-- 분리 JS -->
   <script src="./js/heroSwiper.js"></script>
+  <script src="./js/doctorSwiper.js"></script>
+
+
   <script src="./js/implantSwiper.js"></script>
   <script src="./js/treatmentSwiper.js"></script>
   <script src="./js/ui.js"></script>
