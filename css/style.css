@@ -1087,60 +1087,154 @@ button{font:inherit}
   }
 }
 
-/* =========================================================
-  6) SLIDERS (Desktop)
+//* =========================================================
+  TREATMENT (진료 소개) - Main + Thumbs Swiper
 ========================================================= */
-.slider--dark{
-  background:var(--c-green);
-  color:#fff;
-}
-.section__head--light .section__title{color:#fff}
-.section__head--light .section__sub{color:rgba(255,255,255,.85)}
-.section__head--light .section__eyebrow{color:rgba(244,240,226,.85)}
-
-.slider__wrap{margin-top:18px}
-
-.slidecard{
-  background:rgba(244,240,226,.98);
-  border-radius:18px;
-  overflow:hidden;
-  display:grid;
-  grid-template-columns: 320px 1fr;
-  min-height:220px;
-}
-.slidecard__media{
-  background:rgba(34,73,46,.08);
-}
-.slidecard__media img{width:100%; height:100%; object-fit:cover}
-.slidecard__content{padding:20px}
-.slidecard__num{margin:0; font-weight:900; color:var(--c-brown)}
-.slidecard__title{margin:6px 0 8px; color:var(--c-green); font-size:20px}
-.slidecard__desc{margin:0; color:#2b2b2b}
-
-.treatmentSwiper{margin-top:18px}
-.tcard{
-  border-radius:18px;
-  overflow:hidden;
-  background:#fff;
-  box-shadow:var(--shadow);
-}
-.tcard__img{height:200px; background:rgba(34,73,46,.06)}
-.tcard__img img{width:100%; height:100%; object-fit:cover}
-.tcard__body{padding:18px}
-.tcard__body h3{margin:0 0 6px; color:var(--c-green)}
-.tcard__body p{margin:0 0 10px; color:var(--muted)}
-.tcard__link{font-weight:800; color:var(--c-brown)}
-
-/* swiper buttons / pagination 공통 */
-.swiper-button-prev, .swiper-button-next{
-  color:#fff;
-}
-.treatments .swiper-button-prev,
-.treatments .swiper-button-next{
+.treatment{ padding:96px 0; background:#fff; }
+.treatment__head{ margin-bottom:26px; }
+.treatment__title{
+  margin:0;
+  font-size:44px;
+  font-weight:900;
   color:var(--c-green);
+  letter-spacing:-0.03em;
 }
-.swiper-pagination-bullet{opacity:.35}
-.swiper-pagination-bullet-active{opacity:1}
+
+.treatment__layout{
+  display:grid;
+  grid-template-columns: 1fr 420px;
+  gap:44px;
+  align-items:start;
+}
+
+/* Swiper wrapper overflow */
+.treatmentMainSwiper{ width:100%;  }
+.treatmentThumbsSwiper{ width:100%; }
+
+/* 메인 카드 */
+.tcard{
+  display:grid;
+  grid-template-columns:320px 1fr;
+  gap:34px;
+  align-items:center;
+}
+.tcard__media{
+  width:320px; height:320px;
+  border-radius:18px;
+  overflow:hidden;
+  background:#eee;
+}
+.tcard__media img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+.tcard__name{
+  margin:0 0 10px;
+  font-size:22px;
+  font-weight:900;
+  color:rgba(34,73,46,.95);
+}
+.tcard__desc{
+  margin:0 0 16px;
+  font-size:13px;
+  line-height:1.8;
+  color:rgba(27,27,27,.72);
+}
+
+.tcard__chips{ display:flex; gap:10px; flex-wrap:wrap; }
+.chip{
+  display:inline-flex; align-items:center;
+  height:30px; padding:0 12px;
+  border-radius:999px;
+  font-size:12px; font-weight:800;
+  white-space:nowrap;
+}
+.chip--green{ background:var(--c-green); color:#fff; }
+.chip--beige{ background:rgba(169,142,108,.45); color:rgba(27,27,27,.88); }
+
+/* 하단 컨트롤 */
+.treatment__controls{ margin-top:22px; display:grid; gap:12px; }
+.treatment__bar{
+  width:240px; height:6px;
+  border-radius:999px;
+  background:rgba(34,73,46,.18);
+  overflow:hidden;
+}
+.treatment__barFill{
+  display:block; height:100%;
+  width:12.5%;
+  background:var(--c-green);
+  border-radius:999px;
+  transition: width .25s ease;
+}
+.treatment__meta{ display:flex; align-items:center; gap:12px; }
+.treatment__fraction{ font-size:12px; color:rgba(27,27,27,.65); }
+.treatment__fraction strong{ color:rgba(27,27,27,.85); font-weight:900; }
+
+.treatment__nav{ display:flex; gap:8px; }
+.treatPrev,.treatNext{
+  width:26px; height:26px;
+  border-radius:999px;
+  border:0;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center; justify-content:center;
+  font-size:16px; line-height:1;
+}
+.treatPrev{ background:rgba(34,73,46,.18); color:rgba(34,73,46,.95); }
+.treatNext{ background:var(--c-green); color:#fff; }
+
+/* 우측 썸네일: 3장 노출 */
+.treatment__thumbsWrap{
+  width: 420px;
+}
+.treatmentThumbsSwiper{
+  height: 320px;
+}
+.treatmentThumbsSwiper .swiper-slide{
+  height:auto;
+  display:flex;
+}
+.tthumb{
+  width:100%;
+  height:300px;
+  border:0;
+  padding:0;
+  background:transparent;
+  cursor:pointer;
+  border-radius:10px;
+  overflow:hidden;
+  opacity:.55;
+  transition: opacity .2s ease;
+  position:relative;
+}
+.tthumb img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+/* ✅ Swiper가 active 썸네일에 클래스 붙여줌 */
+.treatmentThumbsSwiper .swiper-slide-thumb-active .tthumb{
+  opacity:1;
+}
+.treatmentThumbsSwiper .swiper-slide-thumb-active .tthumb::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:10px;
+  outline:3px solid rgba(255,255,255,.85);
+  outline-offset:-3px;
+}
+
+/* 반응형 */
+@media (max-width: 1024px){
+  .treatment__layout{ grid-template-columns:1fr; gap:26px; }
+  .tcard{ grid-template-columns:1fr; gap:18px; }
+  .tcard__media{ width:100%; height:280px; }
+
+  .tthumb{ height:160px; }
+  .treatment__bar{ width:200px; }
+}
+
+@media (max-width: 480px){
+  .treatment__title{ font-size:34px; }
+  .tthumb{ height:120px; }
+}
 
 /* =========================================================
   6) EQUIPMENT (Desktop)

@@ -1,34 +1,50 @@
-// treatmentSwiper.js
 document.addEventListener("DOMContentLoaded", () => {
-  new Swiper(".treatmentSwiper", {
-    slidesPerView: 1,
-    spaceBetween: 20,
-    loop: true,
+  const barEl = document.getElementById("treatBar");
+  const fracEl = document.getElementById("treatFraction");
 
-    pagination: {
-      el: ".treatmentPagination",
-      clickable: true,
-    },
+  // 1️⃣ 썸네일 먼저
+  const thumbsSwiper = new Swiper(".treatmentThumbsSwiper", {
+    slidesPerView: 3,
+    spaceBetween: 16,
+    watchSlidesProgress: true,
+    watchSlidesVisibility: true,
+    allowTouchMove: true,
+  });
+
+  // 2️⃣ 메인 Swiper
+  const mainSwiper = new Swiper(".treatmentMainSwiper", {
+    slidesPerView: 1,
+    speed: 600,
+    loop: false,
 
     navigation: {
-      nextEl: ".treatmentNext",
-      prevEl: ".treatmentPrev",
+      nextEl: ".treatNext",
+      prevEl: ".treatPrev",
     },
 
-    speed: 600,
+    thumbs: {
+      swiper: thumbsSwiper,
+    },
 
-    breakpoints: {
-      640: {
-        slidesPerView: 1,
+    on: {
+      init() {
+        updateUI(this);
       },
-      768: {
-        slidesPerView: 2,
-        spaceBetween: 22,
+      slideChange() {
+        updateUI(this);
       },
-      1024: {
-        slidesPerView: 3,
-        spaceBetween: 24,
-      }
-    }
+    },
   });
+
+  function updateUI(swiper){
+    const total = swiper.slides.length;
+    const current = swiper.realIndex + 1;
+
+    if (fracEl) {
+      fracEl.innerHTML = `<strong>${current}</strong> / ${total}`;
+    }
+    if (barEl) {
+      barEl.style.width = `${(current / total) * 100}%`;
+    }
+  }
 });
