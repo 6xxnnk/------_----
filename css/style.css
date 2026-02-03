@@ -119,7 +119,7 @@ html{
   2) HEADER (Desktop)
 ========================================================= */
 .header{
-  position:sticky; top:0; z-index:50;
+  position:sticky; top:0; z-index:5000;
   background:rgba(244,240,226,.92);
   backdrop-filter: blur(10px);
   border-bottom:1px solid rgba(34,73,46,.12);
@@ -159,45 +159,6 @@ html{
 }
 .gnb a:hover{color:var(--c-brown); }
 
-.hamburger{display:none; width:44px; height:44px; border:0; background:transparent}
-.hamburger span{
-  display:block;
-  width:22px;
-  height:2px;
-  background:var(--c-green);
-  margin:5px auto;
-  border-radius:2px;
-}
-
-/* drawer는 기본 숨김 + 스크롤바/틈새 방지 */
-.drawer{
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
-  display: none;              /* 기본 닫힘 */
-  overflow: hidden;           /* ✅ 오른쪽 새는 현상 방지 */
-}
-
-/* 열렸을 때만 표시 */
-.drawer.is-open{ display: block; }
-
-/* 패널은 기본(닫힘) 상태에서 화면 밖으로 */
-.drawer__panel{
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: min(320px, 86vw);
-  height: 100%;
-  background: var(--c-ivory);
-  transform: translateX(110%);   /* ✅ 100%보다 더 밀어(틈 방지) */
-  transition: transform .25s ease;
-  will-change: transform;
-}
-
-/* 열리면 제자리 */
-.drawer.is-open .drawer__panel{
-  transform: translateX(0);
-}
 
 /* =========================================================
   3) HERO (Desktop) - FINAL (1920 기준 / 시안 좌표 고정)
@@ -211,8 +172,8 @@ html{
 .heroSwiper,
 .heroSlide{
   height: calc(100vh - var(--header-h));
-  min-height: 640px;
-  max-height: 980px;
+  min-height: 560px;
+  max-height: 820px;
 }
 
 .heroSlide{
@@ -370,9 +331,6 @@ html{
   .section__title{ font-size: 34px; }
 
   .gnb{ display: none; }
-  .hamburger{ display: block; }
-  .drawer{ display: block; }
-
   /* HERO */
   .heroSwiper,
   .heroSlide{
@@ -451,8 +409,7 @@ html{
   .heroSwiper,
   .heroSlide{
     height: calc(100vh - var(--header-h));
-    min-height: 560px;
-    max-height: none;
+    min-height: 450px;
   }
 
   /* ✅ 모바일: 중앙 정렬 + 하단 배치 */
@@ -510,7 +467,7 @@ html{
   .heroSwiper,
   .heroSlide{
     height: calc(100svh - var(--header-h));
-    min-height: 520px;
+    min-height: 400px;
   }
 
   .heroSlide__copy{
@@ -544,6 +501,145 @@ html{
 
   .heroSwiper .swiper-pagination{ bottom: 8px; }
 }
+/* =========================================================
+  MOBILE NAV (Drawer)
+========================================================= */
+
+/* ✅ 햄버거 버튼: 기본 숨김, 모바일에서만 표시 */
+.mNavBtn{
+  display:none;
+  width:44px;
+  height:44px;
+  border:0;
+  background:transparent;
+  cursor:pointer;
+  position:relative;
+  z-index:7001; /* drawer보다 위 */
+}
+.mNavBtn__line{
+  display:block;
+  width:22px;
+  height:2px;
+  background:var(--c-green);
+  margin:5px auto;
+  border-radius:2px;
+  transition: transform .22s ease, opacity .18s ease;
+  transform-origin: center;
+}
+
+/* ✅ drawer wrapper */
+.mNav{
+  position: fixed;
+  inset: 0;
+  z-index: 7000;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .18s ease;
+
+  /* ✅ 오른쪽 틈/가로스크롤 방지 */
+  overflow: hidden;
+}
+.mNav.is-open{
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ✅ backdrop */
+.mNav__backdrop{
+  position:absolute;
+  inset:0;               /* ✅ 이거 꼭 있어야 화면 전체 클릭됨 */
+  background: rgba(0,0,0,.45);
+  opacity: 0;
+  transition: opacity .18s ease;
+}
+.mNav.is-open .mNav__backdrop{ opacity: 1; }
+
+/* ✅ panel */
+.mNav__panel{
+  position:absolute;
+  top:0;
+  right:0;
+  height:100%;
+  width: min(360px, 88vw);
+
+  background: var(--c-ivory);
+  padding: 18px;
+
+  transform: translateX(110%);
+  transition: transform .22s ease;
+  will-change: transform;
+
+  display:flex;
+  flex-direction:column;
+  gap: 14px;
+
+  overflow-y:auto;
+  -webkit-overflow-scrolling: touch;
+}
+.mNav.is-open .mNav__panel{ transform: translateX(0); }
+
+/* header row */
+.mNav__top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.mNav__title{
+  font-weight:900;
+  color: var(--c-green);
+  letter-spacing:.06em;
+}
+.mNav__close{
+  width:40px;
+  height:40px;
+  border:0;
+  background:transparent;
+  font-size:18px;
+  cursor:pointer;
+}
+
+/* links */
+.mNav__links{
+  display:flex;
+  flex-direction:column;
+  gap: 8px;
+}
+.mNav__link{
+  padding: 12px 12px;
+  border-radius: 14px;
+  background: rgba(34,73,46,.06);
+  color: rgba(34,73,46,.92);
+  font-weight: 800;
+}
+.mNav__link:active{ transform: scale(.99); }
+
+/* CTA */
+.mNav__cta{
+  margin-top:auto;
+  height:48px;
+  border-radius:14px;
+  background: var(--c-green);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:900;
+}
+
+/* ✅ 드로어 열렸을 때 배경 스크롤 잠금 */
+html.is-mnav-open,
+body.is-mnav-open{
+  overflow: hidden;
+}
+
+/* ✅ MOBILE / TABLET에서만 햄버거 표시 */
+@media (max-width: 1024px){
+  .mNavBtn{ display:block; }
+}
+
+
 
 /* =========================================================
   4) ABOUT (병원 소개) - screenshot style
@@ -1206,7 +1302,7 @@ html{
 
 .implant__title{
   margin:0 0 12px;
-  font-size: 36px;
+  font-size: 64px;
   font-weight: 900;
   letter-spacing: -0.03em;
 }
@@ -2303,67 +2399,3 @@ html{
   }
 }
 
-
-
-/* =========================================================
-  10) MOBILE DRAWER (CSS only, JS로 토글 권장)
-========================================================= */
-.drawer{
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-}
-.drawer.is-open{pointer-events:auto}
-.drawer__backdrop{
-  position:absolute; inset:0;
-  background:rgba(0,0,0,.45);
-  opacity:0;
-  transition:.2s ease;
-}
-.drawer.is-open .drawer__backdrop{opacity:1}
-
-.drawer__panel{
-  position:absolute; right:0; top:0;
-  width:min(360px, 88vw);
-  height:100%;
-  background:#fff;
-  transform:translateX(100%);
-  transition:.25s ease;
-  padding:18px;
-  display:flex;
-  flex-direction:column;
-  gap:14px;
-}
-.drawer.is-open .drawer__panel{transform:translateX(0)}
-
-.drawer__top{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-.drawer__title{font-weight:900; color:var(--c-green)}
-.drawer__close{border:0; background:transparent; font-size:18px}
-.drawer__links{display:flex; flex-direction:column; gap:6px}
-.drawer__links a{
-  padding:12px 10px;
-  border-radius:12px;
-  background:rgba(34,73,46,.05);
-  color:rgba(34,73,46,.9);
-  font-weight:800;
-}
-.drawer__cta{
-  margin-top:auto;
-  height:48px;
-  border-radius:14px;
-  background:var(--c-green);
-  color:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:900;
-}
-
-
-/* =========================================================
-  HERO – Small Mobile (iPhone SE: 375 x 667)
-========================================================= */

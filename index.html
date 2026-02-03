@@ -20,53 +20,64 @@
 <body>
   
   <!-- HEADER -->
-  <header class="header" id="top">
-    <div class="container header__inner">
-      <a class="logo" href="#top" aria-label="서울시온치과 홈으로">
-          <img class="logo__img" src="./img/logo.png" alt="서울시온치과 로고" />
-      </a>
+ <!-- HEADER -->
+<header class="header" id="top">
+  <div class="container header__inner">
+    <a class="logo" href="#top" aria-label="서울시온치과 홈으로">
+      <img class="logo__img" src="./img/logo.png" alt="서울시온치과 로고" />
+    </a>
 
-      <nav class="gnb" aria-label="주요 메뉴">
-        <a href="#about">병원소개</a>
-        <a href="#doctors">의료진소개</a>
-        <a href="#greeting">임플란트</a>
-        <a href="#implant">진료소개</a>
-        <a href="#treatments">장비소개</a>
-        <a href="#equipment">둘러보기</a>
-        <a href="#location">오시는길</a>
-      </nav>
+    <nav class="gnb" aria-label="주요 메뉴">
+      <a href="#about">병원소개</a>
+      <a href="#doctors">의료진소개</a>
+      <a href="#implant">임플란트</a>
+      <a href="#treat">진료소개</a>
+      <a href="#equip">장비소개</a>
+      <a href="#tour">둘러보기</a>
+      <a href="#location">오시는길</a>
+    </nav>
 
-      <button class="hamburger" type="button" aria-label="모바일 메뉴 열기" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+    <!-- MOBILE: hamburger -->
+    <button class="mNavBtn" type="button"
+      aria-label="모바일 메뉴 열기"
+      aria-controls="mNav"
+      aria-expanded="false">
+      <span class="mNavBtn__line"></span>
+      <span class="mNavBtn__line"></span>
+      <span class="mNavBtn__line"></span>
+    </button>
+  </div>
+</header>
+
+<!-- ✅ MOBILE: drawer (header 밖으로 분리) -->
+<div class="mNav" id="mNav" aria-hidden="true">
+  <div class="mNav__backdrop" data-mnav-close tabindex="-1" aria-hidden="true"></div>
+
+  <div class="mNav__panel" role="dialog" aria-modal="true" aria-label="모바일 메뉴">
+    <div class="mNav__top">
+      <span class="mNav__title">MENU</span>
+      <button class="mNav__close" type="button" data-mnav-close aria-label="모바일 메뉴 닫기">✕</button>
     </div>
 
-    <!-- Mobile Drawer -->
-    <div class="drawer" aria-hidden="true">
-      <div class="drawer__panel">
-        <div class="drawer__top">
-          <span class="drawer__title">MENU</span>
-          <button class="drawer__close" type="button" aria-label="모바일 메뉴 닫기">✕</button>
-        </div>
-        <div class="drawer__links">
-          <a href="#about">병원소개</a>
-          <a href="#doctors">의료진소개</a>
-          <a href="#greeting">의료진 인사</a>
-          <a href="#implant">임플란트</a>
-          <a href="#treatments">진료소개</a>
-          <a href="#equipment">장비소개</a>
-          <a href="#location">오시는길</a>
-        </div>
-        <a class="drawer__cta" href="tel:055-715-2275">전화 문의 055.715.2275</a>
-      </div>
-      <div class="drawer__backdrop" tabindex="-1"></div>
-    </div>
-  </header>
+    <nav class="mNav__links" aria-label="모바일 메뉴">
+      <a class="mNav__link" href="#about">병원소개</a>
+      <a class="mNav__link" href="#doctors">의료진소개</a>
+      <a class="mNav__link" href="#implant">임플란트</a>
+      <a class="mNav__link" href="#treat">진료소개</a>
+      <a class="mNav__link" href="#equip">장비소개</a>
+      <a class="mNav__link" href="#tour">둘러보기</a>
+      <a class="mNav__link" href="#location">오시는길</a>
+    </nav>
+
+    <a class="mNav__cta" href="tel:055-715-2275">전화 문의 055.715.2275</a>
+  </div>
+</div>
 
   <main>
 
 
-<!-- 1) HERO --><section class="hero hero--swiper" id="hero" aria-label="메인 배너">
+<!-- 1) HERO -->
+ <section class="hero hero--swiper" id="hero" aria-label="메인 배너">
   <div class="swiper heroSwiper">
     <div class="swiper-wrapper">
 
@@ -722,7 +733,7 @@
 </section>
 
 <!-- 7) 장비소개 -->
-    <!-- 장비 소개 -->
+
 <section class="section equip" id="equip">
   <div class="container">
     <div class="section__head equip__head">
