@@ -1070,7 +1070,13 @@ body.is-mnav-open{ overflow: hidden; }
 
 /* Tabs: 기본은 숨김(=데스크탑 그대로) */
 .dcard__tabs{ display: none; }
-
+@media (min-width: 601px){
+  .doctorsPrev.is-hidden,
+  .doctorsNext.is-hidden{
+    opacity: 0;
+    pointer-events: none;
+  }
+}
 /* =========================================================
    TABLET (<=1024px)
 ========================================================= */
@@ -1369,8 +1375,8 @@ body.is-mnav-open{ overflow: hidden; }
 }
 
 @media (max-width: 480px){
-  .greeting__title{ font-size: 20px; }
-  .greeting__lead{ font-size: 16px; }
+  .greeting__title{ font-size: 25px; }
+  .greeting__lead{ font-size: 30px; }
   .greeting__body p{ font-size: 13px; line-height: 1.8; }
   .greeting__media{ height: 260px; border-radius: 22px; }
 }
