@@ -73,16 +73,6 @@ button{font:inherit}
   overflow:hidden;
 }
 
-/* .media__placeholder{
-  min-height:260px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:rgba(34,73,46,.06);
-  color:rgba(34,73,46,.65);
-  font-weight:700;
-}
- */
 
 /* =========================
 Scrollbar Custom
@@ -117,51 +107,57 @@ html{
 
 /* =========================================================
   2) HEADER (Desktop)
+========================================================= *//* =========================================================
+  HEADER (no design change)
 ========================================================= */
 .header{
-  position:sticky; top:0; z-index:5000;
-  background:rgba(244,240,226,.92);
-  backdrop-filter: blur(10px);
-  border-bottom:1px solid rgba(34,73,46,.12);
+  position: sticky;
+  top: 0;
+  z-index: 5000;
   height: var(--header-h);
 
+  background: rgba(244,240,226,.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(34,73,46,.12);
 }
+
 .header__inner{
-  height:var(--header-h);
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:16px;
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
 }
 
 .logo{
-  display:flex;
-  align-items:center;
-  gap:10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 .logo__img{
-  height:48px;            /* 필요하면 30~40 조절 */
-  width:auto;
-  display:block;
+  height: 48px;
+  width: auto;
+  display: block;
 }
+
 .gnb{
-  display:flex;
-  gap:40px;
-  align-items:center;
+  display: flex;
+  gap: 40px;
+  align-items: center;
   margin-left: 50px;
 }
 .gnb a{
-  font-size:14px;         
-  font-weight:400;       
-  letter-spacing:-0.02em;  
-  padding:12px 10px;
-  color:rgba(34,73,46,.9);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  padding: 12px 10px;
+  color: rgba(34,73,46,.9);
 }
-.gnb a:hover{color:var(--c-brown); }
+.gnb a:hover{ color: var(--c-brown); }
 
 
 /* =========================================================
-  3) HERO (Desktop) - FINAL (1920 기준 / 시안 좌표 고정)
+  HERO (base)
 ========================================================= */
 .hero--swiper{
   position: relative;
@@ -181,7 +177,6 @@ html{
   overflow: hidden;
 }
 
-/* 배경 이미지 */
 .heroSlide__bg{
   position: absolute;
   inset: 0;
@@ -189,7 +184,6 @@ html{
   transform: scale(1.02);
 }
 
-/* 프레임 */
 .heroFrame{
   width: min(var(--container-hero), 100%);
   height: 100%;
@@ -197,18 +191,17 @@ html{
   position: relative;
 }
 
-/* ✅ 텍스트 블록: 데스크탑에서 우측 고정, 모바일에서 자동 레이아웃 */
 .heroSlide__copy{
   position: absolute;
   top: 34vh;
-  right: 120px;             /* ✅ left 계산 대신 right 기준이 더 안정적 */
+  right: 120px;
   width: 680px;
+
   color: #fff;
   text-align: right;
   word-break: keep-all;
 }
 
-/* 타이틀 */
 .hero__title{
   margin: 0 0 14px;
   font-weight: 700;
@@ -217,13 +210,11 @@ html{
   letter-spacing: -0.02em;
 }
 
-/* 데스크탑 타이틀은 의도대로 2줄 유지 */
 .hero__line{
   display: block;
   white-space: nowrap;
 }
 
-/* 본문 */
 .hero__desc{
   margin: 0;
   font-size: 22px;
@@ -232,22 +223,20 @@ html{
   font-weight: 500;
 }
 
-.hero__desc--gap{
-  margin-top: 14px;   /* ✅ 기존 <br><br> 대신 */
-}
-
+.hero__desc--gap{ margin-top: 14px; }
 .pc-br{ display: inline; }
+
 /* ✅ 커스텀 화살표 (img 버전) */
 .heroSlide__arrow{
   position: absolute;
   right: 34px;
   top: 50%;
   transform: translateY(-50%);
+
   width: 52px;
   height: 52px;
   border-radius: 999px;
 
-  /* 프리미엄 느낌: 살짝 유리/딥 */
   background: rgba(0,0,0,.10);
   border: 1px solid rgba(255,255,255,.35);
   backdrop-filter: blur(8px);
@@ -267,7 +256,6 @@ html{
     box-shadow .18s ease;
 }
 
-/* span은 레이아웃용 컨테이너 */
 .heroSlide__arrow span{
   display: grid;
   place-items: center;
@@ -275,19 +263,19 @@ html{
   height: 100%;
 }
 
-/* ✅ 실제 아이콘 이미지 크기 제어는 여기서 */
 .heroSlide__arrow img{
-  width: 18px;     /* 아이콘 크기 */
+  width: 18px;
   height: 18px;
   display: block;
   object-fit: contain;
-  transform: translateX(1px);  /* › 느낌으로 살짝 오른쪽 */
+
+  transform: translateX(1px);
   opacity: .95;
+
   transition: transform .18s ease, opacity .18s ease, filter .18s ease;
   filter: brightness(0) invert(1);
 }
 
-/* hover */
 .heroSlide__arrow:hover{
   background: rgba(0,0,0,.22);
   border-color: rgba(255,255,255,.55);
@@ -296,107 +284,202 @@ html{
   transform: translateY(-50%) scale(1.03);
 }
 .heroSlide__arrow:hover img{
-  
   opacity: 1;
   filter: drop-shadow(0 6px 12px rgba(0,0,0,.28));
   filter: brightness(0) invert(1);
 }
 
-/* active */
 .heroSlide__arrow:active{
   transform: translateY(-50%) scale(.98);
 }
 
-/* focus */
 .heroSlide__arrow:focus-visible{
   outline: 2px solid rgba(244,240,226,.85);
   outline-offset: 3px;
 }
 
-/* 반응형 */
-@media (max-width: 1024px){
-  .heroSlide__arrow{
-    right: 18px;
-    width: 50px;
-    height: 50px;
-  }
-  .heroSlide__arrow img{
-    width: 18px;
-    height: 18px;
-  }
-}
-
-@media (max-width: 480px){
-  .heroSlide__arrow{
-    right: 12px;
-    width: 44px;
-    height: 44px;
-  }
-  .heroSlide__arrow img{
-    width: 16px;
-    height: 16px;
-  }
-}
-
 /* pagination */
-.heroSwiper .swiper-pagination{
-  bottom: 18px;
-}
+.heroSwiper .swiper-pagination{ bottom: 18px; }
 .heroSwiper .swiper-pagination-bullet{
   background: #fff;
   opacity: .35;
 }
-.heroSwiper .swiper-pagination-bullet-active{
-  opacity: 1;
-}
+.heroSwiper .swiper-pagination-bullet-active{ opacity: 1; }
 
 
+/* =========================================================
+  BUTTON (as-is)
+========================================================= */
 .btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  height:46px;
-  padding:0 18px;
-  border-radius:999px;
-  border:1px solid transparent;
-  font-weight:800;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 46px;
+  padding: 0 18px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-weight: 800;
 }
-.btn--primary{background:var(--c-brown); color:#fff}
-.btn--ghost{background:transparent; border-color:rgba(255,255,255,.55); color:#fff}
+.btn--primary{ background: var(--c-brown); color:#fff; }
+.btn--ghost{ background: transparent; border-color: rgba(255,255,255,.55); color:#fff; }
 
-.hero__meta{margin-top:18px; display:flex; gap:10px; flex-wrap:wrap}
+.hero__meta{ margin-top: 18px; display:flex; gap:10px; flex-wrap:wrap; }
 .pill{
-  display:inline-flex; align-items:center;
-  padding:8px 12px;
-  border-radius:999px;
-  background:rgba(255,255,255,.14);
-  border:1px solid rgba(255,255,255,.22);
-  font-size:13px;
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.14);
+  border: 1px solid rgba(255,255,255,.22);
+  font-size: 13px;
 }
 
 
 /* =========================================================
-   TABLET (<=1024px)
+  MOBILE NAV (Drawer) - no design change
 ========================================================= */
+.mNavBtn{
+  display: none;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  z-index: 7001;
+}
+
+.mNavBtn__line{
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--c-green);
+  margin: 5px auto;
+  border-radius: 2px;
+  transition: transform .22s ease, opacity .18s ease;
+  transform-origin: center;
+}
+
+.mNav{
+  position: fixed;
+  inset: 0;
+  z-index: 7000;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .18s ease;
+  overflow: hidden;
+}
+.mNav.is-open{
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mNav__backdrop{
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.45);
+  opacity: 0;
+  transition: opacity .18s ease;
+}
+.mNav.is-open .mNav__backdrop{ opacity: 1; }
+
+.mNav__panel{
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: min(360px, 88vw);
+
+  background: var(--c-ivory);
+  padding: 18px;
+
+  transform: translateX(110%);
+  transition: transform .22s ease;
+  will-change: transform;
+
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.mNav.is-open .mNav__panel{ transform: translateX(0); }
+
+.mNav__top{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.mNav__title{
+  font-weight: 900;
+  color: var(--c-green);
+  letter-spacing: .06em;
+}
+
+.mNav__close{
+  width: 40px;
+  height: 40px;
+  border: 0;
+  background: transparent;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.mNav__links{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mNav__link{
+  padding: 12px 12px;
+  border-radius: 14px;
+  background: rgba(34,73,46,.06);
+  color: rgba(34,73,46,.92);
+  font-weight: 800;
+}
+.mNav__link:active{ transform: scale(.99); }
+
+.mNav__cta{
+  margin-top: auto;
+  height: 48px;
+  border-radius: 14px;
+  background: var(--c-green);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+}
+
+html.is-mnav-open,
+body.is-mnav-open{ overflow: hidden; }
+
+
+/* =========================================================
+  RESPONSIVE
+========================================================= */
+
+/* TABLET & BELOW */
 @media (max-width: 1024px){
   :root{
     --container: 920px;
     --header-h: 72px;
   }
 
-  .section{ padding: 76px 0; }
-  .section__title{ font-size: 34px; }
-
   .gnb{ display: none; }
+  .mNavBtn{ display: block; }
+
   /* HERO */
   .heroSwiper,
   .heroSlide{
-    height: calc(100vh - var(--header-h));
-    min-height: 640px;
-    max-height: none;
+    height: calc(clamp(600px, 90vh, 800px) - var(--header-h));
   }
 
-  /* ✅ 텍스트: 우측 + 세로 가운데 정렬 */
   .heroSlide__copy{
     top: 0;
     left: auto;
@@ -418,7 +501,6 @@ html{
     margin-bottom: 16px;
   }
 
-  /* 태블릿: 자연 줄바꿈 허용 */
   .hero__line{ white-space: normal; }
 
   .hero__desc{
@@ -426,56 +508,28 @@ html{
     line-height: 1.35;
   }
 
-  .heroSlide__arrow{
-    right: 18px;
-    width: 50px;
-    height: 50px;
+   .heroSlide__arrow{
+    display: none;
   }
-  .heroSlide__arrow span{ font-size: 40px; }
 
   .heroSwiper .swiper-pagination{ bottom: 14px; }
-
-  /* LAYOUT */
-  .about__grid,
-  .greeting__grid{ grid-template-columns: 1fr; }
-
-  .doctors__cards{ grid-template-columns: 1fr; }
-  .doctor{ grid-template-columns: 160px 1fr; }
-
-  .slidecard{ grid-template-columns: 260px 1fr; }
-
-  .equipment__panel{ grid-template-columns: 1fr; }
-  .equipment__media{ min-height: 260px; }
-
-  .location__grid{ grid-template-columns: 1fr; }
-  .map{ min-height: 360px; }
 }
 
-
-/*MOBILE (<=480px)*/
+/* MOBILE (<=480) */
 @media (max-width: 480px){
-  .container{ width: calc(100% - 32px); }
-  .section{ padding: 58px 0; }
-
-  .section__title{ font-size: 26px; }
-  .section__sub{ font-size: 14px; }
-
-  /* HERO */
+  /* HERO: 모바일 공통 */
   .heroSwiper,
   .heroSlide{
-    height: calc(100vh - var(--header-h));
-    min-height: 450px;
+        height: calc(clamp(480px, 84vh, 680px) - var(--header-h));
   }
 
-  /* ✅ 모바일: 중앙 정렬 + 하단 배치 */
   .heroSlide__copy{
     right: 16px;
     width: calc(100% - 32px);
 
     text-align: center;
     justify-content: flex-end;
-
-    padding-bottom: 84px; /* pagination 공간 */
+    padding-bottom: 84px;
   }
 
   .hero__title{
@@ -484,62 +538,33 @@ html{
     margin-bottom: 14px;
   }
 
-  .hero__line{ white-space: normal; }
-
   .hero__desc{
     font-size: 16px;
     line-height: 1.45;
+  }
 
+ .heroSlide__arrow{
+    display: none;
   }
-  .heroSlide__arrow{
-    right: 12px;
-    top: 52%;
-    width: 44px;
-    height: 44px;
-  }
-  .heroSlide__arrow span{ font-size: 34px; }
 
   .heroSwiper .swiper-pagination{ bottom: 10px; }
 
   .btn{ height: 44px; padding: 0 16px; }
-
-  .doctor{ grid-template-columns: 1fr; }
-  .doctor__photo .media__placeholder{ min-height: 220px; }
-
-  .slidecard{ grid-template-columns: 1fr; }
-  .slidecard__media .media__placeholder{ min-height: 200px; }
-
-  .tcard__img{ height: 180px; }
-
-  .location__tel{ font-size: 22px; }
 }
 
-
-/* =========================================================
-   SMALL MOBILE (<=375px)  iOS 주소창 대응
-========================================================= */
-@media (max-width: 375px){
-  .heroSwiper,
-  .heroSlide{
-    height: calc(100svh - var(--header-h));
-    min-height: 400px;
-  }
+/* ✅ iPhone 12 Pro(390px) 세로 길이 줄이기: 다른 기기에서 줄인 정도로 맞춤 */
+@media (max-width: 390px){
+ 
 
   .heroSlide__copy{
-    right: 12px;
-    width: calc(100% - 24px);
-    text-align: center;
-    padding-bottom: 72px;
+    padding-bottom: 72px; /* 페이지네이션 공간 약간 줄임 */
   }
- 
-  
+
   .hero__title{
     font-size: 28px;
     line-height: 1.2;
     margin-bottom: 12px;
   }
-
-  .hero__line{ white-space: normal; }
 
   .hero__desc{
     font-size: 15px;
@@ -547,179 +572,34 @@ html{
     font-weight: 500;
   }
 
-  .heroSlide__arrow{
-    width: 40px;
-    height: 40px;
-    right: 10px;
-  }
-  .heroSlide__arrow span{ font-size: 30px; }
-
   .heroSwiper .swiper-pagination{ bottom: 8px; }
 }
-/* =========================================================
-  MOBILE NAV (Drawer)
-========================================================= */
-
-/* ✅ 햄버거 버튼: 기본 숨김, 모바일에서만 표시 */
-.mNavBtn{
-  display:none;
-  width:44px;
-  height:44px;
-  border:0;
-  background:transparent;
-  cursor:pointer;
-  position:relative;
-  z-index:7001; /* drawer보다 위 */
-}
-.mNavBtn__line{
-  display:block;
-  width:22px;
-  height:2px;
-  background:var(--c-green);
-  margin:5px auto;
-  border-radius:2px;
-  transition: transform .22s ease, opacity .18s ease;
-  transform-origin: center;
-}
-
-/* ✅ drawer wrapper */
-.mNav{
-  position: fixed;
-  inset: 0;
-  z-index: 7000;
-
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity .18s ease;
-
-  /* ✅ 오른쪽 틈/가로스크롤 방지 */
-  overflow: hidden;
-}
-.mNav.is-open{
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* ✅ backdrop */
-.mNav__backdrop{
-  position:absolute;
-  inset:0;               /* ✅ 이거 꼭 있어야 화면 전체 클릭됨 */
-  background: rgba(0,0,0,.45);
-  opacity: 0;
-  transition: opacity .18s ease;
-}
-.mNav.is-open .mNav__backdrop{ opacity: 1; }
-
-/* ✅ panel */
-.mNav__panel{
-  position:absolute;
-  top:0;
-  right:0;
-  height:100%;
-  width: min(360px, 88vw);
-
-  background: var(--c-ivory);
-  padding: 18px;
-
-  transform: translateX(110%);
-  transition: transform .22s ease;
-  will-change: transform;
-
-  display:flex;
-  flex-direction:column;
-  gap: 14px;
-
-  overflow-y:auto;
-  -webkit-overflow-scrolling: touch;
-}
-.mNav.is-open .mNav__panel{ transform: translateX(0); }
-
-/* header row */
-.mNav__top{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-}
-.mNav__title{
-  font-weight:900;
-  color: var(--c-green);
-  letter-spacing:.06em;
-}
-.mNav__close{
-  width:40px;
-  height:40px;
-  border:0;
-  background:transparent;
-  font-size:18px;
-  cursor:pointer;
-}
-
-/* links */
-.mNav__links{
-  display:flex;
-  flex-direction:column;
-  gap: 8px;
-}
-.mNav__link{
-  padding: 12px 12px;
-  border-radius: 14px;
-  background: rgba(34,73,46,.06);
-  color: rgba(34,73,46,.92);
-  font-weight: 800;
-}
-.mNav__link:active{ transform: scale(.99); }
-
-/* CTA */
-.mNav__cta{
-  margin-top:auto;
-  height:48px;
-  border-radius:14px;
-  background: var(--c-green);
-  color:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:900;
-}
-
-/* ✅ 드로어 열렸을 때 배경 스크롤 잠금 */
-html.is-mnav-open,
-body.is-mnav-open{
-  overflow: hidden;
-}
-
-/* ✅ MOBILE / TABLET에서만 햄버거 표시 */
-@media (max-width: 1024px){
-  .mNavBtn{ display:block; }
-}
-
 
 
 /* =========================================================
-  4) ABOUT (병원 소개) - screenshot style
+  4) ABOUT (병원 소개) 
 ========================================================= */
 
-/* about timeline */
-.about {
+
+.about{
   position: relative;
   overflow: hidden;
   background: url("../img/about-bg.png") center/cover no-repeat;
 }
 
-.about::before {
+.about::before{
   content: "";
   position: absolute;
   inset: 0;
   pointer-events: none;
 }
 
-.about .container {
+.about .container{
   position: relative;
   z-index: 1;
 }
 
-.aboutTimeline {
+.aboutTimeline{
   position: relative;
   max-width: 1100px;
   margin: 0 auto;
@@ -727,84 +607,100 @@ body.is-mnav-open{
 }
 
 /* 중앙 라인 */
-.aboutTimeline__line {
+.aboutTimeline__line{
   position: absolute;
   top: 0;
   bottom: 0;
   left: 50%;
-  width: 1px;
-  background: rgba(56, 86, 73, 0.25);
   transform: translateX(-50%);
+
+  width: 2px; /* ✅ 최종값(중복 제거) */
+  background: rgba(56, 86, 73, 0.55); /* ✅ 최종값(중복 제거) */
 }
 
-/* 아이템 */
-.aboutItem {
+/* =========================================================
+  ITEM
+========================================================= */
+/* =========================================================
+  ABOUT (Base)
+========================================================= */
+.about{
+  position: relative;
+  overflow: hidden;
+  background: url("../img/about-bg.png") center/cover no-repeat;
+}
+.about::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+}
+.about .container{
+  position: relative;
+  z-index: 1;
+}
+
+/* timeline wrapper */
+.aboutTimeline{
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 0 10px;
+}
+
+/* 중앙 세로 라인 */
+.aboutTimeline__line{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  background: rgba(56, 86, 73, 0.55);
+}
+
+/* =========================================================
+  ITEM (Desktop)
+========================================================= */
+.aboutItem{
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
   gap: 56px;
   margin: 80px 0;
-  position: relative;
 }
 
-
-
-
-/* 중앙 세로 라인: 이미지처럼 살짝 두께감 + 컬러 */
-.aboutTimeline__line {
-  width: 2px;
-  background: rgba(56, 86, 73, 0.55);
-}
-
-/* 각 아이템에서 중앙 라인에만 "가로선"을 생성 */
-.aboutItem {
-  position: relative;
-}
-
-/* 가로선 (중앙 라인에서 좌/우로 짧게) */
-.aboutItem::before {
-  content: "";
-  position: absolute;
+/* 중앙 라인에서 좌/우로 뻗는 가로선 (Desktop용) */
+.aboutItem::before{
+  content:"";
+  position:absolute;
   top: 50%;
   left: 50%;
   height: 2px;
-  width: 70px; /* 이미지처럼 '짧게' */
+  width: 70px;
   background: rgba(56, 86, 73, 0.55);
   transform: translateY(-50%);
 }
+.aboutItem--left::before{ transform: translate(-100%, -50%); }
+.aboutItem--right::before{ transform: translate(0, -50%); }
 
-/* 왼쪽 아이템은 중앙에서 "왼쪽으로" 뻗게 */
-.aboutItem--left::before {
-  transform: translate(-100%, -50%);
-}
-
-/* 오른쪽 아이템은 중앙에서 "오른쪽으로" 뻗게 */
-.aboutItem--right::before {
-  transform: translate(0, -50%);
-}
-
-/* 도트는 텍스트 위쪽 중앙(이미지처럼) */
-.aboutItem__dot {
+/* dot (Desktop: 텍스트 상단 중앙) */
+.aboutItem__dot{
   display: inline-block;
   width: 25px;
   height: 25px;
   border-radius: 999px;
   background: #2f5f4f;
-  margin: 0 auto 14px; /* 중앙정렬 */
+  margin: 0 auto 14px;
+  box-shadow: 0 0 0 3px rgba(47,95,79,.12);
 }
 
-/* 텍스트 정중앙 느낌: 블록 자체를 가운데로 */
-.aboutItem__col--text {
-  text-align: center;
-}
+/* text col */
+.aboutItem__col--text{ text-align: center; }
+.aboutItem--right .aboutItem__col--text{ text-align: center; }
 
-/* right쪽도 텍스트는 중앙정렬 유지 */
-.aboutItem--right .aboutItem__col--text {
-  text-align: center;
-}
-
-
-.aboutItem__title {
+.aboutItem__title{
   font-size: 28px;
   font-weight: 700;
   letter-spacing: -0.02em;
@@ -812,264 +708,289 @@ body.is-mnav-open{
   color: #1e2b25;
 }
 
-.aboutItem__desc {
+.aboutItem__desc{
   font-size: 17px;
   line-height: 1.75;
   color: #45524b;
 }
+.aboutItem__desc--stack{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.aboutItem__desc--stack .m-line{ display:block; }
+.aboutItem__desc--stack .m-line--end{ margin-top: 2px; }
 
-/* 이미지 카드 */
-.aboutItem__media {
+/* media card */
+.aboutItem__media{
   width: 100%;
   max-width: 520px;
   border-radius: 18px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.274);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.274);
 }
+.aboutItem--left .aboutItem__media{ justify-self: end; }
+.aboutItem--right .aboutItem__media{ justify-self: start; }
 
-.aboutItem--left .aboutItem__media {
-  justify-self: end;
-}
-
-.aboutItem--right .aboutItem__media {
-  justify-self: start;
-}
-
-.aboutItem__media img {
-  display: block;
-  width: 100%;
-  height: 210px;
+.aboutItem__media img{
+  display:block;
+  width:100%;
+  height:210px;
   object-fit: cover;
 }
 
-/* PC에서 텍스트가 중앙 라인 쪽으로 너무 붙지 않게 */
-.aboutItem--left .aboutItem__col--text {
-  padding-left: 0;
-}
-.aboutItem--right .aboutItem__col--text {
-  padding-right: 0;
-}
-/*디테일 ) 스크롤 등장 애니메이션 */
-.reveal {
+/* =========================================================
+  REVEAL
+========================================================= */
+.reveal{
   opacity: 0;
   transform: translateY(18px);
- transition: opacity 800ms ease, transform 800ms ease;
+  transition: opacity 800ms ease, transform 800ms ease;
   will-change: opacity, transform;
 }
-
-.reveal.is-visible {
+.reveal.is-visible{
   opacity: 1;
   transform: translateY(0);
 }
-
-/* 좌/우 방향감 살짝 (이미지처럼 자연스럽게) */
-.aboutItem--left.reveal {
-  transform: translate(-10px, 18px);
-}
-.aboutItem--right.reveal {
-  transform: translate(10px, 18px);
-}
+.aboutItem--left.reveal{ transform: translate(-10px, 18px); }
+.aboutItem--right.reveal{ transform: translate(10px, 18px); }
 .aboutItem--left.reveal.is-visible,
-.aboutItem--right.reveal.is-visible {
+.aboutItem--right.reveal.is-visible{
   transform: translate(0, 0);
 }
 
+/* =========================================================
+  RESPONSIVE (<=1024px)
+  - 세로라인 left:18px
+  - dot: 타이틀 위쪽(텍스트 시작선)
+  - dot::after = dot 옆 가로선
+  - media::before = 이미지 중앙 가로선 (세로라인까지)
+========================================================= */
+@media (max-width: 1024px){
 
-/* 반응형 */
-@media (max-width: 1024px) {
-  .aboutTimeline {
+  .aboutTimeline{
     padding: 40px 0 0;
   }
 
-  .aboutTimeline__line {
+  .aboutTimeline__line{
     left: 18px;
     transform: none;
   }
 
-  .aboutItem {
+  .aboutItem{
     grid-template-columns: 1fr;
     gap: 18px;
     margin: 44px 0;
     padding-left: 44px;
   }
 
-  .aboutItem__col--text {
+  .aboutItem__col--text{
     max-width: 100%;
-    justify-self: start !important;
+    justify-self: start;
     text-align: left;
-    padding: 0 !important;
+    padding-left: 28px;   /* 텍스트 시작선 */
+    min-height: auto;
+    position: relative;
   }
 
-  .aboutItem__media {
+  .aboutItem__media{
     max-width: 100%;
-    justify-self: start !important;
+    justify-self: start;
   }
 
-  .aboutItem__media img {
+  .aboutItem__media img{
     height: 200px;
   }
 
-    .aboutItem__col--text {
-    min-height: auto;
+  /* ✅ Desktop 가로선 제거 */
+  .aboutItem::before{ display:none; }
+
+  /* =====================================================
+    DOT (텍스트 기준 위쪽)
+  ====================================================== */
+  .aboutItem__dot{
+    position: absolute;
+    top: 0;
+    left: 0; /* aboutItem__col--text 기준 */
+    transform: translate(-50%, -120%);
+    width: 16px;
+    height: 16px;
+    border-radius: 999px;
+    background: #2f5f4f;
+    box-shadow: 0 0 0 3px rgba(47,95,79,.12);
+    margin: 0;
+    z-index: 2;
   }
 
-  /* 모바일에서는 도트를 왼쪽 타임라인(18px) 기준으로 붙이는 게 안정적 */
-  .aboutItem__dot {
-    left: -34px !important;
-    right: auto !important;
-  }
-  .aboutItem::before {
-    left: 18px; /* 너가 중앙 라인을 18px로 둔 값과 동일 */
-    width: 26px;
-    transform: translate(0, -50%);
+
+
+  /* =====================================================
+    IMAGE 중앙 가로선 (세로라인까지)
+  ====================================================== */
+  .aboutItem__col--media{
+    position: relative;
   }
 
-  .aboutItem--left::before,
-  .aboutItem--right::before {
-    transform: translate(0, -50%);
+  .aboutItem__col--media::before{
+    content:"";
+    position:absolute;
+    left: -65px;               /* (44px padding-left - 18px line) = 26px */
+    top: 50%;
+    width: 32px;
+    height: 2px;
+    background: rgba(56, 86, 73, 0.55);
+    transform: translateY(-50%);
   }
 }
 
+/* =========================================================
+  MOBILE (<=480px)
+========================================================= */
+@media (max-width: 480px){
 
-@media (max-width: 480px) {
-  .aboutItem__title {
+  .aboutItem__title{
     font-size: 19px;
+    text-align: left;
   }
-  .aboutItem__desc {
+
+  .aboutItem__desc{
     font-size: 14px;
   }
-  .aboutItem__media img {
+
+  .aboutItem__desc--stack{
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .aboutItem__media img{
     height: 180px;
   }
 }
 
-
 /* =========================================================
-  5) DOCTORS (Swiper)
+  5) DOCTORS 
 ========================================================= */
-
+/* =========================================================
+   DOCTORS
+========================================================= */
 .doctors{
   position: relative;
   padding: 96px 0 0;
-/*   background: #fff; */
-  overflow: hidden;  
+  overflow: hidden;
   background: url("../img/se2_bg.png") no-repeat center/contain;
 }
 
-/* 하단 아이보리 띠(스크린샷처럼 섹션 아래쪽에 크게 깔림) */
+/* 하단 아이보리 띠 */
 .doctors::after{
   content:"";
   position:absolute;
   left:0; right:0;
-  top: 320px;              /* 제목 아래부터 베이지 시작 */
+  top: 320px;
   bottom: 0;
-/*   background: var(--c-ivory); */
   z-index: 0;
 }
 
-/* 1920 프레임 + 워터마크 */
+/* =========================================================
+   FRAME / WATERMARK
+========================================================= */
 .doctorsFrame{
   position: relative;
   max-width: 1920px;
   margin: 0 auto;
-  padding: 0 0 96px;
-  z-index: 1;              /* 베이지 띠 위 */
+  padding-bottom: 96px;
+  z-index: 1;
 }
 
 .doctors__wm{
   position:absolute;
   right:-140px;
-  top: 70px;
-  width: 680px;
-  height: 680px;
-
-  opacity: .08;
+  top:70px;
+  width:680px;
+  height:680px;
+  opacity:.08;
   pointer-events:none;
 }
 
-/* swiper 영역 */
+/* =========================================================
+   SWIPER
+========================================================= */
 .doctorsSwiper{
   position: relative;
   width: 100%;
   padding-top: 10px;
 }
 
-/* 스와이퍼 “테두리(슬라이드 외곽 라인)” 느낌 제거 */
 .doctorsSwiper .swiper-wrapper,
 .doctorsSwiper .swiper-slide{
   background: transparent;
-}
-.doctorsSwiper .swiper-slide{
-  border: 0 !important;
-  outline: 0 !important;
-  box-shadow: none !important;
+  border: 0;
+  box-shadow: none;
 }
 
-/* 카드 */
+/* =========================================================
+   CARD
+========================================================= */
 .dcard{
   width: min(1200px, calc(100% - 48px));
   margin: 0 auto;
   border-radius: 22px;
   overflow: hidden;
-  background: hsla(0, 0%, 100%, 0.911);
-  /* 스크린샷은 과한 테두리/그림자 없음 → 은은하게 */
-  /* box-shadow: 0 16px 36px rgba(0,0,0,.10); */
+  background: hsla(0,0%,100%,.91);
 }
 
-/* 상단 흰 영역(센터 타이틀) */
+/* 상단 */
 .dcard__top{
   padding: 46px 56px 28px;
   text-align: center;
-/*   background: #fff; */
 }
 
 .dcard__dept{
-  margin: 0 0 12px;
+  margin-bottom: 12px;
   font-size: 18px;
   font-weight: 700;
   color: rgba(34,73,46,.9);
-  letter-spacing: -0.02em;
 }
 
 .dcard__name{
-  margin: 0;
   font-size: 30px;
   font-weight: 900;
   color: var(--c-green);
   letter-spacing: -0.03em;
 }
-.dcard__name strong{ font-weight: 900; }
 
-/* 하단(아이보리) 그리드 */
+/* =========================================================
+   GRID
+========================================================= */
 .dcard__grid{
   display: grid;
-  grid-template-columns: 440px 1fr; /* 사진 폭이 스크린샷처럼 좀 더 큼 */
+  grid-template-columns: 440px 1fr;
   gap: 44px;
-  align-items: start;
   padding: 38px 56px 60px;
-/*   background: var(--c-ivory); */
+  align-items: start;
 }
 
-/* 의료진 사진: “위는 둥글고 아래는 덜 둥근 + 세로 길게” */
+/* 사진 */
 .dcard__photo{
-  overflow: hidden;
-  background:#fff;
-  /* 위쪽 라운드 크게, 아래는 조금만 */
-  border-radius: 0 180px 0 0;
-  box-shadow: 0 14px 26px rgba(0,0,0,.12);
   width: 360px;
   max-width: 100%;
   height: 400px;
+  overflow: hidden;
+  background:#fff;
+  border-radius: 0 180px 0 0;
+  box-shadow: 0 14px 26px rgba(0,0,0,.12);
 }
 
 .dcard__photo img{
-  width:100%;
-  height: 680px;          /* ✅ 세로 길게 */
-  object-fit: cover;
-  display:block;
+  width: 100%;
+  height: 100%;          /* 🔥 680px 제거 */
+  object-fit: cover;     /* 도형 안 꽉 채우기 */
+  object-position: center; /* 기본 중앙 */
+  display: block;
 }
 
-/* 스펙 2컬럼 */
+/* =========================================================
+   SPEC
+========================================================= */
 .dcard__spec{
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1077,159 +998,158 @@ body.is-mnav-open{
 }
 
 .dcard__label{
-  margin: 0 0 12px;
+  margin-bottom: 12px;
   font-size: 13px;
   font-weight: 900;
-  color: rgba(27,27,27,.70);
+  color: rgba(27,27,27,.7);
 }
 
 .dcard__list{
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: grid;
-  gap: 10px;
+  list-style:none;
+  display:grid;
+  gap:10px;
+  padding:0;
+  margin:0;
 }
 
 .dcard__list li{
-  font-size: 13px;
-  line-height: 1.75;
+  font-size:13px;
+  line-height:1.75;
   color: rgba(27,27,27,.85);
-  padding-left: 12px;
-  border-left: 2px solid rgba(34,73,46,.18);
+  padding-left:12px;
+  border-left:2px solid rgba(34,73,46,.18);
 }
 
-
+/* =========================================================
+   REVERSE
+========================================================= */
 .dcard--reverse .dcard__grid{
   grid-template-columns: 1fr 440px;
 }
 
 .dcard--reverse .dcard__photo{
-  order: 2;
+  order:2;
+  border-radius: 180px 0 0 0;
 }
 
 .dcard--reverse .dcard__spec{
-  order: 1;
-  justify-self: end;
-  text-align: right;              /* ✅ 텍스트 오른쪽 */
+  order:1;
+  text-align:right;
 }
-
 
 .dcard--reverse .dcard__list li{
-  border-left: 0;
-  padding-left: 0;
-  padding-right: 12px;
-  border-right: 2px solid rgba(34,73,46,.18);
+  border-left:0;
+  padding-left:0;
+  padding-right:12px;
+  border-right:2px solid rgba(34,73,46,.18);
 }
 
-
-.dcard__spec:has(.dcard__col:only-child){
-  grid-template-columns: 1fr;
-}
-
-/* Pagination */
+/* =========================================================
+   PAGINATION / NAV
+========================================================= */
 .doctorsSwiper .swiper-pagination{
-  position: static;
-  margin-top: 18px;
+  margin-top:18px;
   text-align:center;
 }
+
 .doctorsSwiper .swiper-pagination-bullet{
   background: rgba(34,73,46,.55);
-  opacity: .25;
-}
-.doctorsSwiper .swiper-pagination-bullet-active{
-  opacity: 1;
+  opacity:.25;
 }
 
+.doctorsSwiper .swiper-pagination-bullet-active{
+  opacity:1;
+}
 
 .doctorsNext,
 .doctorsPrev{
-  position: absolute;
-  top: 56%;
+  position:absolute;
+  top:56%;
   transform: translateY(-50%);
-  width: 46px;
-  height: 46px;
-  border-radius: 999px;
-  border: 0;
+  width:46px;
+  height:46px;
+  border-radius:999px;
+  border:0;
   background: rgba(34,73,46,.92);
-  color: #fff;
-  cursor: pointer;
+  color:#fff;
+  font-size:28px;
+  cursor:pointer;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size: 28px;
-  box-shadow: 0 10px 22px rgba(0,0,0,.14);
-  z-index: 5;
+  box-shadow:0 10px 22px rgba(0,0,0,.14);
+  z-index:5;
 }
 
-.doctorsNext{ right: 140px; }
-.doctorsPrev{ left: 140px; }
+.doctorsNext{ right:140px; }
+.doctorsPrev{ left:140px; }
 
 .doctorsNext:hover,
 .doctorsPrev:hover{ background: rgba(34,73,46,1); }
 
-.is-hidden{ display:none !important; }
+.is-hidden{ display:none!important; }
 
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+@media (max-width:1024px){
+  .doctors::after{ top:280px; }
 
-@media (max-width: 1024px){
-  .doctors::after{ top: 280px; }
-
-  .dcard{ width: calc(100% - 48px); }
-  .dcard__top{ padding: 34px 28px 18px; }
-  .dcard__dept{ font-size: 16px; }
-  .dcard__name{ font-size: 26px; }
+  .dcard__top{ padding:34px 28px 18px; }
+  .dcard__dept{ font-size:16px; }
+  .dcard__name{ font-size:26px; }
 
   .dcard__grid{
-    grid-template-columns: 360px 1fr;
-    gap: 28px;
-    padding: 28px 28px 40px;
+    grid-template-columns:360px 1fr;
+    gap:28px;
+    padding:28px 28px 40px;
   }
-  .dcard__photo img{ height: 560px; }
-  .dcard__photo{ border-radius: 200px 200px 24px 24px; }
 
-  .doctorsNext{ right: 24px; }
-  .doctorsPrev{ left: 24px; }
+  .dcard__photo img{ height:100%; }
+  .dcard__photo{ border-radius:200px 200px 24px 24px; }
+
+  .doctorsNext{ right:24px; }
+  .doctorsPrev{ left:24px; }
 }
 
-@media (max-width: 600px){
-  .doctors{ padding-top: 72px; }
-  .doctors::after{ top: 240px; }
+@media (max-width:600px){
+  .doctors{ padding-top:72px; }
+  .doctors::after{ top:240px; }
 
-  .dcard__grid{
-    grid-template-columns: 1fr;
-  }
+  .dcard__grid,
   .dcard--reverse .dcard__grid{
-    grid-template-columns: 1fr;
+    grid-template-columns:1fr;
   }
 
   .dcard__photo{
-    order: 1;
-    border-radius: 42px;
+    height: 440px;        /* 🔥 기존 360px → 여유 있게 */
+    border-radius: 42px;  /* 기존 유지 */
   }
+
   .dcard__photo img{
-    height: 360px;
+    height:360px;
+     object-position: 50% 20%; 
   }
 
   .dcard__spec{
-    order: 2;
-    grid-template-columns: 1fr;
-    text-align: left;
-    justify-self: stretch;
+    grid-template-columns:1fr;
+    text-align:left;
   }
+
   .dcard--reverse .dcard__spec{
-    text-align: left;
-    justify-self: stretch;
+    text-align:left;
   }
 
   .dcard--reverse .dcard__list li{
-    border-right: 0;
-    padding-right: 0;
-    padding-left: 12px;
-    border-left: 2px solid rgba(34,73,46,.18);
+    border-right:0;
+    padding-right:0;
+    padding-left:12px;
+    border-left:2px solid rgba(34,73,46,.18);
   }
 
-  .doctorsNext, .doctorsPrev{
-    top: 52%;
+  .doctorsNext,
+  .doctorsPrev{
+    top:52%;
   }
 }
 
@@ -1328,9 +1248,7 @@ body.is-mnav-open{
   .greeting__media{ height: 260px; border-radius: 22px; }
 }
 
-/* =========================================================
-  IMPLANT (Swiper)
-========================================================= */
+
 /* =========================================================
   IMPLANT
 ========================================================= */
