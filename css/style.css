@@ -54,7 +54,9 @@ button{font:inherit}
   letter-spacing:.12em;
   color:var(--c-brown);
   text-transform:uppercase;
+
 }
+
 .section__title{
   margin:0;
   font-size:64px;
@@ -1383,12 +1385,13 @@ body.is-mnav-open{ overflow: hidden; }
 
 
 /* =========================================================
-  IMPLANT
+  IMPLANT (Clean)
 ========================================================= */
+
+/* ✅ 높이 토큰: 기본(PC) */
 :root{
-  /* ✅ 슬라이드 높이 통일용(브레이크포인트별로 값만 바꿈) */
-  --icard-h: 360px;          /* PC 기본 */
-  --icard-media-h: 100%;     /* PC/태블릿(좌우 레이아웃): 카드 높이 꽉 */
+  --icard-h: 360px;        /* 카드 높이 (PC) */
+  --icard-media-h: 100%;   /* 좌우 레이아웃일 때 media는 카드 높이 꽉 */
 }
 
 .implant{
@@ -1396,22 +1399,23 @@ body.is-mnav-open{ overflow: hidden; }
   padding: 84px 0 72px;
   background: url("../img/se4_bg.png") no-repeat center/cover;
   color: #fff;
-  overflow: hidden;
+  overflow: hidden; /* ✅ 모바일 가로 튐 방지 */
 }
 
+/* head */
 .implant__head{
   position: relative;
-  text-align: center;
   z-index: 1;
+  text-align: center;
 }
 
 .implant__eyebrow{
   margin: 0 0 8px;
   font-size: 12px;
   letter-spacing: .14em;
+  text-transform: uppercase;
   opacity: .95;
   color: var(--c-brown);
-  text-transform: uppercase;
 }
 
 .implant__title{
@@ -1424,7 +1428,7 @@ body.is-mnav-open{ overflow: hidden; }
 .implant__sub{
   margin: 0 auto;
   max-width: 720px;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.7;
   opacity: .92;
   word-break: keep-all;
@@ -1439,20 +1443,30 @@ body.is-mnav-open{ overflow: hidden; }
   z-index: 1;
 }
 
-/* swiper wrapper (좌우 버튼 공간) */
+/* swiper: 좌우 버튼 공간 */
 .implantSwiper{
   position: relative;
   padding: 0 64px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ✅ Swiper 기본 요소가 가로 튀는 경우 방지 */
+.implantSwiper .swiper-wrapper{
+  box-sizing: border-box;
+}
+.implantSwiper .swiper-slide{
+  box-sizing: border-box;
 }
 
 /* =========================================================
-  CARD (✅ breakpoint별 높이 통일)
+  CARD
 ========================================================= */
 .icard{
   width: min(760px, calc(100% - 48px));
   margin: 0 auto;
 
-  height: var(--icard-h);           /* ✅ 통일 높이 */
+  height: var(--icard-h);
   background: #fff;
   color: var(--text);
   border-radius: 14px;
@@ -1464,12 +1478,13 @@ body.is-mnav-open{ overflow: hidden; }
   align-items: stretch;
 
   padding: 28px;
-  overflow: hidden;                 /* ✅ 카드 밖으로는 절대 안넘치게 */
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 /* media */
 .icard__media{
-  height: var(--icard-media-h);     /* ✅ breakpoint별로 제어 */
+  height: var(--icard-media-h);
   background: #fff;
   border-radius: 20px;
   padding: 14px;
@@ -1479,6 +1494,7 @@ body.is-mnav-open{ overflow: hidden; }
   justify-content: center;
 
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .icard__media img{
@@ -1489,20 +1505,17 @@ body.is-mnav-open{ overflow: hidden; }
   display: block;
 }
 
-/* body: 숫자 → pill → desc */
+/* body */
 .icard__body{
   height: 100%;
   display: flex;
   flex-direction: column;
-
-  /* ✅ 위에서부터 자연스럽게 쌓이게 */
   justify-content: flex-start;
   gap: 14px;
-
   margin: 0;
 }
 
-/* 숫자 */
+/* no */
 .icard__no{
   font-size: 52px;
   font-weight: 800;
@@ -1527,11 +1540,10 @@ body.is-mnav-open{ overflow: hidden; }
   font-size: 22px;
   font-weight: 800;
   line-height: 1;
-
   flex: 0 0 auto;
 }
 
-/* ✅ desc는 모두 보이게(webkit clamp X) + 카드 높이 유지 위해 여기만 스크롤 */
+/* desc: 남는 영역만 스크롤 */
 .icard__desc{
   margin: 0;
   color: rgba(27,27,27,.72);
@@ -1539,12 +1551,12 @@ body.is-mnav-open{ overflow: hidden; }
   line-height: 1.65;
   letter-spacing: -0.02em;
 
-  flex: 1 1 auto;          /* ✅ 남은 높이 다 씀 */
-  overflow-y: auto;        /* ✅ 길면 여기만 스크롤 */
-  padding-right: 6px;      /* 스크롤 여백 */
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding-right: 6px;
 }
 
-/* (선택) desc 스크롤바 아주 얇게 */
+/* 스크롤바(선택) */
 .icard__desc::-webkit-scrollbar{ width: 6px; }
 .icard__desc::-webkit-scrollbar-thumb{
   background: rgba(34,73,46,.22);
@@ -1623,16 +1635,21 @@ body.is-mnav-open{ overflow: hidden; }
 }
 
 /* =========================================================
-  TABLET (<=1024px)
+  RESPONSIVE
+  - Tablet: <=1024
+  - Mobile: <=600
+  - Small Mobile: <=480
 ========================================================= */
+
+/* ✅ Tablet (iPad mini/air/pro 포함 안정) */
 @media (max-width: 1024px){
   :root{
-    --icard-h: 340px;       /* ✅ 태블릿에서 통일 높이 */
+    --icard-h: 340px;
     --icard-media-h: 100%;
   }
 
   .implant{ padding: 70px 0 62px; }
-  .implant__title{ font-size: 34px; }
+
 
   .implantFrame{ padding: 0 18px; }
   .implantSwiper{ padding: 0 52px; }
@@ -1646,25 +1663,65 @@ body.is-mnav-open{ overflow: hidden; }
   .icard__no{ font-size: 46px; }
   .icard__pill{ font-size: 20px; }
 }
+/* ✅ Desktop/Tablet: 화살표는 hover에서만 보이게(원하면) */
+@media (min-width: 601px){
+  .implantPrev,
+  .implantNext{
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .18s ease;
+  }
+  .implantSwiper:hover .implantPrev,
+  .implantSwiper:hover .implantNext{
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
 
-/* =========================================================
-  MOBILE (<=480px)
-========================================================= */
-@media (max-width: 480px){
-  :root{
-    --icard-h: 430px;       /* ✅ 모바일에서 통일 높이 */
-    --icard-media-h: 170px; /* ✅ 모바일은 상단 이미지 높이 고정 */
+/* ✅ Mobile 공통 (대부분 스마트폰: 600 이하) */
+@media (max-width: 600px){
+  /* 1) 화살표 완전 삭제 */
+  .implantPrev,
+  .implantNext{
+    display: none !important;
   }
 
-  .implant{ padding: 58px 0 52px; }
-  .implant__title{ font-size: 28px; }
-  .implant__sub{ font-size: 13px; }
+  /* 2) Swiper 좌우 패딩을 peek용으로 바꿈
+     - 기존 0 44px 대신 "화면 가장자리 여백 + peek" 느낌 */
+  .implantSwiper{
+    padding: 0 18px;   /* 양옆 안전 여백 */
+  }
 
-  .implantFrame{ padding: 0 14px; }
-  .implantSwiper{ padding: 0 44px; }
+  /* 3) 카드 폭을 '거의 꽉'으로 → 양옆이 살짝 보이도록 */
+  .icard{
+    width: 100%;
+    margin: 0;         /* slide 내부에서 중앙 정렬로 처리 */
+  }
+
+  /* 4) slide 자체를 중앙에 두고, active만 더 또렷하게 */
+  .implantSwiper .swiper-slide{
+    display: flex;
+    justify-content: center;
+    opacity: .86;
+    transform: scale(.985);
+    transition: transform .2s ease, opacity .2s ease;
+  }
+  .implantSwiper .swiper-slide-active{
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ✅ Small Mobile (iPhone SE~480) */
+@media (max-width: 480px){
+  :root{
+    --icard-h: 430px;
+    --icard-media-h: 170px;
+  }
+
+  .implant{ padding: 58px 0 52px; }}
 
   .icard{
-    width: min(340px, 100%);
     grid-template-columns: 1fr;
     gap: 16px;
     padding: 18px;
@@ -1674,7 +1731,6 @@ body.is-mnav-open{ overflow: hidden; }
     padding: 10px;
     border-radius: 18px;
   }
-
   .icard__media img{
     border-radius: 14px;
   }
@@ -1693,6 +1749,7 @@ body.is-mnav-open{ overflow: hidden; }
     font-size: 30px;
   }
 }
+
 
 /* =========================================================
   SMALL MOBILE (<=375px)
@@ -2596,3 +2653,4 @@ body.is-mnav-open{ overflow: hidden; }
     width: calc(100% - 32px);
   }
 }
+
