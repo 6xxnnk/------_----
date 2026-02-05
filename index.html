@@ -719,9 +719,11 @@
                 </figure>
                 <div class="treatCard__body">
                   <h3 class="treatCard__title">수복치료</h3>
-                  <p class="treatCard__desc">치아의 손상된 부위를 제거하고 <br />
+                  <p class="treatCard__desc">
+                    치아의 손상된 부위를 제거하고 <br />
                     적절한 재료로 메우거나 씌워<br />
-                    본래의 형태와 기능을 회복시키는 치료</p>
+                    본래의 형태와 기능을 <br />
+                    회복시키는 치료</p>
                   <div class="treatTags" aria-label="보철치료 키워드">
                     <span class="tag tag--primary">크라운</span>
                     <span class="tag">인레이</span>
@@ -740,8 +742,8 @@
                 <div class="treatCard__body">
                   <h3 class="treatCard__title">심미보철</h3>
                   <p class="treatCard__desc">치아 겉면을 일부 삭제하거나<br />
-                    전체를 감싸<br />
-                    모양과 색상을 개선하는 치료</p>
+                    전체를 감싸 모양과<br />
+                    색상을 개선하는 치료</p>
                   <div class="treatTags" aria-label="심미보철 키워드">
                     <span class="tag tag--primary">라미네이트</span>
                     <span class="tag">올세라믹</span> 
@@ -757,8 +759,9 @@
                 </figure>
                 <div class="treatCard__body">
                   <h3 class="treatCard__title">틀니</h3>
-                  <p class="treatCard__desc">상실된 치아를 대체할 탈부착 장치를 <br>
-                  제작 및 수리해, 저작 기능과 외관을 회복</p>
+                  <p class="treatCard__desc">상실된 치아를 대체할<br> 
+                    탈부착 장치를 제작 및 수리해<br>
+                    저작 기능과 외관을 회복</p>
                   <div class="treatTags" aria-label="틀니 키워드">
                     <span class="tag tag--primary">정확한 진단</span>
                     <span class="tag">틀니 제작</span>
@@ -812,7 +815,8 @@
                 </figure>
                 <div class="treatCard__body">
                   <h3 class="treatCard__title">신경치료</h3>
-                  <p class="treatCard__desc">감염되거나 손상된치수 조직을 제거한 뒤 <br>
+                  <p class="treatCard__desc">감염되거나 손상된<br>
+                    치수 조직을 제거한 뒤 <br>
                     대체 재료를 채워 자연 치아를 살리는 보존적 치료</p>
                   <div class="treatTags" aria-label="신경치료 키워드">
                     <span class="tag tag--primary">치수절단술</span>
@@ -871,45 +875,78 @@
 
 <!-- 7) 장비소개 -->
 
-<section class="section equip" id="equip">
+<section class="section equip" id="equip" aria-labelledby="equip-title">
   <div class="container">
-    <div class="section__head equip__head">
-      <p class="section__eyebrow">Seoul Sion Dental Clinic</p>
-      <h2 class="section__title">장비소개</h2>
-    </div>
 
-    <!-- pills -->
+    <!-- Section Head -->
+    <header class="section__head equip__head">
+      <p class="section__eyebrow">Seoul Sion Dental Clinic</p>
+      <h2 class="section__title" id="equip-title">장비소개</h2>
+    </header>
+
+    <!-- Tabs -->
     <div class="equipTabs" role="tablist" aria-label="장비 선택">
-      <button class="equipTab is-active" type="button" role="tab" aria-selected="true" data-equip="novacare">
+      <button
+        type="button"
+        class="equipTab is-active"
+        role="tab"
+        aria-selected="true"
+        data-equip="novacare">
         노바케어
       </button>
-      <button class="equipTab" type="button" role="tab" aria-selected="false" data-equip="melag">
+
+      <button
+        type="button"
+        class="equipTab"
+        role="tab"
+        aria-selected="false"
+        data-equip="melag">
         Melag
       </button>
-      <button class="equipTab" type="button" role="tab" aria-selected="false" data-equip="3shape">
+
+      <button
+        type="button"
+        class="equipTab"
+        role="tab"
+        aria-selected="false"
+        data-equip="3shape">
         3Shape
       </button>
-      <button class="equipTab" type="button" role="tab" aria-selected="false" data-equip="osstem">
+
+      <button
+        type="button"
+        class="equipTab"
+        role="tab"
+        aria-selected="false"
+        data-equip="osstem">
         오스템
       </button>
     </div>
 
-    <!-- content -->
+    <!-- Content Stage -->
     <div class="equipStage">
+
+      <!-- Image -->
       <figure class="equipCard">
-        <img class="equipImg"
-            src="./img/equipment01.png"
-            alt="노바케어 장비 이미지"
-            onerror="this.style.display='none'">
+        <img
+          src="./img/equipment01.png"
+          alt="노바케어 수관 살균 시스템"
+          class="equipImg"
+          loading="lazy">
       </figure>
 
+      <!-- Text -->
       <div class="equipText">
-        <h3 class="equipName">노바케어 <span>(수관살균시스템)</span></h3>
+        <h3 class="equipName">
+          노바케어 <span>(수관 살균 시스템)</span>
+        </h3>
+
         <p class="equipDesc">
-          진료에 사용되는 수관을 정기적으로 살균·관리하여,
-          위생과 안전 기준을 높입니다
+          진료에 사용되는 수관을 정기적으로 살균·관리하여  <br>
+          위생과 안전 기준을 높이는 장비입니다.
         </p>
       </div>
+
     </div>
   </div>
 </section>

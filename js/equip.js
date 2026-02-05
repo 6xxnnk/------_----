@@ -14,7 +14,7 @@
       img: "./img/equipment01.png",
       alt: "노바케어 장비 이미지",
       name: "노바케어 <span>(수관살균시스템)</span>",
-      desc: "진료에 사용되는 수관을 정기적으로 살균·관리하여, 위생과 안전 기준을 높입니다"
+      desc: "진료에 사용되는 수관을 정기적으로 살균·관리하여 위생과 안전 기준을 높입니다"
     },
     melag: {
       img: "./img/equipment02.png",
@@ -26,7 +26,7 @@
       img: "./img/equipment03.png",
       alt: "3Shape 구강스캐너 이미지",
       name: "Trios 6 <span>(3D구강스캐너)</span>",
-      desc: "정밀 스캔으로 오차를 줄이고, 보다 정확한 진단과 계획 수립에 도움을 줍니다"
+      desc: "정밀 스캔으로 오차를 줄이고 명확한 진단과 계획 수립에 도움을 줍니다"
     },
     osstem: {
       img: "./img/equipment04.png",
