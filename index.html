@@ -875,81 +875,44 @@
 
 <!-- 7) 장비소개 -->
 
-<section class="section equip" id="equip" aria-labelledby="equip-title">
+<!-- equip section (HTML) -->
+<section class="section equip" id="equip">
   <div class="container">
-
-    <!-- Section Head -->
-    <header class="section__head equip__head">
+    <div class="section__head equip__head">
       <p class="section__eyebrow">Seoul Sion Dental Clinic</p>
-      <h2 class="section__title" id="equip-title">장비소개</h2>
-    </header>
-
-    <!-- Tabs -->
-    <div class="equipTabs" role="tablist" aria-label="장비 선택">
-      <button
-        type="button"
-        class="equipTab is-active"
-        role="tab"
-        aria-selected="true"
-        data-equip="novacare">
-        노바케어
-      </button>
-
-      <button
-        type="button"
-        class="equipTab"
-        role="tab"
-        aria-selected="false"
-        data-equip="melag">
-        Melag
-      </button>
-
-      <button
-        type="button"
-        class="equipTab"
-        role="tab"
-        aria-selected="false"
-        data-equip="3shape">
-        3Shape
-      </button>
-
-      <button
-        type="button"
-        class="equipTab"
-        role="tab"
-        aria-selected="false"
-        data-equip="osstem">
-        오스템
-      </button>
+      <h2 class="section__title">장비소개</h2>
     </div>
 
-    <!-- Content Stage -->
-    <div class="equipStage">
+    <!-- pills -->
+    <div class="equipTabs" role="tablist" aria-label="장비 선택">
+      <button class="equipTab is-active" type="button" role="tab" aria-selected="true" data-equip="novacare">노바케어</button>
+      <button class="equipTab" type="button" role="tab" aria-selected="false" data-equip="melag">Melag</button>
+      <button class="equipTab" type="button" role="tab" aria-selected="false" data-equip="3shape">3Shape</button>
+      <button class="equipTab" type="button" role="tab" aria-selected="false" data-equip="osstem">오스템</button>
+    </div>
 
-      <!-- Image -->
+    <!-- stage (premium frame) -->
+    <div class="equipStage reveal">
       <figure class="equipCard">
         <img
-          src="./img/equipment01.png"
-          alt="노바케어 수관 살균 시스템"
           class="equipImg"
-          loading="lazy">
+          src="./img/equipment01.png"
+          alt="노바케어 장비 이미지"
+          onerror="this.style.display='none'">
       </figure>
 
-      <!-- Text -->
       <div class="equipText">
-        <h3 class="equipName">
-          노바케어 <span>(수관 살균 시스템)</span>
-        </h3>
-
+        <h3 class="equipName">노바케어 <span>(수관살균시스템)</span></h3>
         <p class="equipDesc">
-          진료에 사용되는 수관을 정기적으로 살균·관리하여  <br>
-          위생과 안전 기준을 높이는 장비입니다.
+          진료에 사용되는 수관을 정기적으로 살균·관리하여
+          <span class="m-break"> </span>
+          위생과 안전 기준을 높입니다
         </p>
       </div>
-
     </div>
   </div>
 </section>
+
 
 <!-- 8)둘러보기 -->
 <section class="section tour" id="tour">
