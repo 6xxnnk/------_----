@@ -1141,22 +1141,22 @@ body.is-mnav-open{ overflow: hidden; }
     pointer-events:none;
   }
 
-  /* NAV는 모바일에서 숨김(드래그 메인) */
+
   .doctorsPrev,
   .doctorsNext{ display:none  }
 
-  /* reverse 포함: 1열로 */
+
   .dcard__grid,
   .dcard--reverse .dcard__grid{
     grid-template-columns: 1fr;
     gap: 16px;
   }
 
-  /* ✅ 핵심: 모바일에서 reverse도 사진이 맨 위로 */
+
   .dcard__photo{ order: 1; margin: 0 auto;  width: var(--photo-w); }
   .dcard__spec{ order: 2; }
 
-  /* reverse 카드도 동일 규칙(override) */
+
   .dcard--reverse .dcard__photo{ order: 1; }
   .dcard--reverse .dcard__spec{
     order: 2;
@@ -1165,7 +1165,7 @@ body.is-mnav-open{ overflow: hidden; }
 
   }
 
-  /* reverse 리스트도 모바일에서는 왼쪽 라인으로 통일 */
+
   .dcard--reverse .dcard__list li{
     border-right: 0;
     padding-right: 0;
@@ -1173,19 +1173,19 @@ body.is-mnav-open{ overflow: hidden; }
     border-left: 2px solid rgba(34,73,46,.18);
   }
 
-  /* 모바일 패딩 줄여서 텍스트 폭 확보 */
+
   .dcard__top{ padding: 26px 16px 12px; }
   .dcard__grid{ padding: 16px 16px 22px; }
 
-  /* 모바일 사진 사이즈(가로/세로 모두 축소) + 도형 유지 */
+
   .dcard__photo{
     width: min(250px, 72vw);
     height: clamp(230px, 40vh, 290px);
-    border-radius: 0 180px 0 0;  /* 데스크탑 도형 유지 */
+    border-radius: 0 180px 0 0; 
     box-shadow: 0 14px 26px rgba(0,0,0,.12);
   }
   .dcard--reverse .dcard__photo{
-    border-radius: 180px 0 0 0;  /* reverse 도형 유지 */
+    border-radius: 180px 0 0 0;  
   }
   .dcard__photo img{
     width: 100%;
@@ -1194,7 +1194,7 @@ body.is-mnav-open{ overflow: hidden; }
     object-position: center;
   }
 
-  /* Spec는 1열 */
+
   .dcard__spec{
     grid-template-columns: 1fr;
     gap: 14px;
@@ -1203,7 +1203,6 @@ body.is-mnav-open{ overflow: hidden; }
     margin: 0 auto;
   }
 
-  /* ✅ 탭 보이기 (모바일에서만) */
   .dcard__tabs{
     display: flex;
     gap: 8px;
@@ -1228,19 +1227,18 @@ body.is-mnav-open{ overflow: hidden; }
     color: #fff;
   }
 
-  /* ✅ 텍스트 영역 가로 확장: 좌우 여백 최소화 */
+
   .dcard__spec [data-panel]{
     padding-left: 0;
     padding-right: 0;
     width: 100%;
   }
   .dcard__list li{
-    padding-left: 10px;  /* 12 → 10 (조금 더 넓게) */
+    padding-left: 10px;  
   }
 
-  /* ✅ 분량 차이 대응: 높이 통일 + 내부 스크롤 */
   .dcard__spec [data-panel]{
-    max-height: 260px;   /* 240 → 260 (조금 더 여유) */
+    max-height: 260px;  
     overflow: auto;
   }
 
@@ -1256,7 +1254,7 @@ body.is-mnav-open{ overflow: hidden; }
     pointer-events: none;
   }
 
-  /* pagination 터치 친화 */
+
   .doctorsSwiper .swiper-pagination{ margin-top: 18px; }
   .doctorsSwiper .swiper-pagination-bullet{
     width: 7px; height: 7px; opacity: .22;
@@ -1270,7 +1268,7 @@ body.is-mnav-open{ overflow: hidden; }
 }
 
 /* =========================================================
-   Mobile tab toggle states (JS에서 dcard__spec에 클래스만 토글)
+   Mobile tab toggle
 ========================================================= */
 @media (max-width:600px){
   /* 기본: cur만 보이게 */
@@ -1289,15 +1287,15 @@ body.is-mnav-open{ overflow: hidden; }
   background: #fff;
 }
 
-/* 레이아웃: 좌 텍스트 / 우 이미지 */
+
 .greeting__grid{
   display: grid;
-  grid-template-columns: 1fr 520px; /* 우측 카드 폭 */
+  grid-template-columns: 1fr 520px;
   gap: 56px;
   align-items: center;
 }
 
-/* LEFT */
+
 .greeting__title{
   margin: 0 0 10px;
   font-size: 28px;
@@ -1328,7 +1326,7 @@ body.is-mnav-open{ overflow: hidden; }
   color: rgba(27,27,27,.78);
 }
 
-/* 사인 */
+
 .greeting__sign{
   margin: 18px 0 0;
   font-size: 14px;
@@ -1336,7 +1334,6 @@ body.is-mnav-open{ overflow: hidden; }
   color: rgba(34,73,46,.86);
 }
 
-/* RIGHT: 이미지 카드 */
 .greeting__media{
   margin: 0;
   width: 100%;
@@ -1382,8 +1379,8 @@ body.is-mnav-open{ overflow: hidden; }
 ======================================================== */
 
 :root{
-  --icard-h: 360px;        /* PC */
-  --icard-media-h: 100%;   /* PC/Tablet: media = card height */
+  --icard-h: 360px;       
+  --icard-media-h: 100%; 
 }
 
 .implant{
@@ -1425,7 +1422,7 @@ body.is-mnav-open{ overflow: hidden; }
   word-break: keep-all;
 }
 
-/* frame */
+
 .implantFrame{
   position: relative;
   max-width: 1200px;
@@ -1479,7 +1476,7 @@ body.is-mnav-open{ overflow: hidden; }
   display: block;
 }
 
-/* body */
+
 .icard__body{
   height: 100%;
   display: flex;
@@ -1489,7 +1486,7 @@ body.is-mnav-open{ overflow: hidden; }
   margin: 0;
 }
 
-/* no */
+
 .icard__no{
   font-size: 52px;
   font-weight: 800;
@@ -1499,7 +1496,7 @@ body.is-mnav-open{ overflow: hidden; }
   flex: 0 0 auto;
 }
 
-/* pill */
+
 .icard__pill{
   display: inline-flex;
   width: fit-content;
@@ -1517,7 +1514,7 @@ body.is-mnav-open{ overflow: hidden; }
   flex: 0 0 auto;
 }
 
-/* desc */
+
 .icard__desc{
   margin: 0;
   color: rgba(27,27,27,.72);
@@ -1638,13 +1635,12 @@ body.is-mnav-open{ overflow: hidden; }
 
 
 @media (max-width: 600px){
-  /* 화살표 삭제 */
   .implantPrev,
   .implantNext{
     display: none !important;
   }
 
-  /* peek용 패딩 */
+
   .implantFrame{
     padding: 0 0; 
   }
@@ -1750,7 +1746,7 @@ body.is-mnav-open{ overflow: hidden; }
 
 
 /* =========================================================
-  TREATMENT (진료 소개) - Main + Thumbs Swiper
+  TREATMENT 
 ========================================================= */
 
 .treat__wrap{ position: relative; }
@@ -1831,7 +1827,7 @@ body.is-mnav-open{ overflow: hidden; }
   color: #fff;
 }
 
-/* ===== Bottom bar (progress + fraction + arrows) ===== */
+
 .treatBar{
   margin-top: 22px;
   display: grid;
@@ -1898,14 +1894,14 @@ body.is-mnav-open{ overflow: hidden; }
 .treatBtn--prev span{ transform: rotate(135deg); margin-left: 2px; }
 .treatBtn--next span{ transform: rotate(-45deg); margin-right: 2px; }
 
-/* ===== RIGHT thumbs (HORIZONTAL) ===== */
+
 .treatThumbs{
   position: relative;
 }
 
 .treatThumbSwiper{
   width: 100%;
-  height: auto;              /* ✅ 세로 높이 고정 제거 */
+  height: auto;        
 }
 
 .treatThumbSwiper .swiper-wrapper{
@@ -1979,7 +1975,7 @@ body.is-mnav-open{ overflow: hidden; }
 
 @media (max-width: 600px){
 
-  /* 레이아웃 여백 정리 */
+
   .treatLayout{
     gap: 18px;
     margin-top: 22px;
@@ -2043,9 +2039,6 @@ body.is-mnav-open{ overflow: hidden; }
   7) EQUIPMENT (Desktop)
 ========================================================= */
 
-/* =========================================================
-  EQUIP (Clean + Premium)
-========================================================= */
 
 .equip{
   position: relative;
@@ -2107,7 +2100,7 @@ body.is-mnav-open{ overflow: hidden; }
 }
 
 /* =========================================================
-  STAGE (Premium frame: image + text one card)
+  STAGE 
 ========================================================= */
 .equipStage{
   max-width: 720px;
@@ -2147,12 +2140,11 @@ body.is-mnav-open{ overflow: hidden; }
   pointer-events:none;
 }
 
-/* 카드(이미지 박스) */
+
 .equipCard{
   width: min(520px, 100%);
   margin: 0 auto 18px;
-  overflow: hidden; /* 이미지 확대 시 잘림 */
-}
+  overflow: hidden; }
 
 .equipCard img{
   width: 100%;
@@ -2163,7 +2155,7 @@ body.is-mnav-open{ overflow: hidden; }
   outline: none;
 }
 
-/* 텍스트 */
+
 .equipText{
   padding-top: 2px;
   transition: opacity .25s ease, transform .25s ease;
@@ -2191,7 +2183,7 @@ body.is-mnav-open{ overflow: hidden; }
   color: var(--muted);
 }
 
-/* 전환 애니메이션(페이드) */
+
 .equipCard,
 .equipText{
   transition: opacity .25s ease, transform .25s ease;
@@ -2203,7 +2195,7 @@ body.is-mnav-open{ overflow: hidden; }
   transform: translateY(8px);
 }
 
-/* 프리미엄 스위칭 모션 (이미지 확대/축소) */
+
 .equipImg{
   transform: scale(1);
   transition: transform .38s ease, filter .38s ease;
@@ -2212,19 +2204,19 @@ body.is-mnav-open{ overflow: hidden; }
 
 }
 
-/* 전환 시작: 살짝 작아지고 톤 다운 */
+
 .equipStage.is-switching .equipImg{
   transform: scale(.985);
   filter: brightness(.98) saturate(.98);
 }
 
-/* 전환 후: 살짝 커졌다가 돌아오는 느낌 */
+
 .equipStage.is-entering .equipImg{
   transform: scale(1.02);
   filter: brightness(1) saturate(1);
 }
 
-/* 프레임도 살짝 반응 */
+
 .equipStage.is-switching{
   transform: translateY(1px);
   box-shadow:
@@ -2232,7 +2224,7 @@ body.is-mnav-open{ overflow: hidden; }
     inset 0 1px 0 rgba(255,255,255,.6);
 }
 
-/* 기본(숨은 상태) */
+
 .equipStage.reveal{
   opacity: 0;
   transform: translateY(10px) scale(.99);
@@ -2245,12 +2237,11 @@ body.is-mnav-open{ overflow: hidden; }
   will-change: transform, opacity, filter;
 }
 
-/* 보일 때 */
+
 .equipStage.reveal.is-visible{
   opacity: 1;
   transform: translateY(0) scale(1);
   filter: blur(0);
-  /* “살짝 떠오름” */
   box-shadow: 0 18px 44px rgba(0,0,0,.10);
 }
 
@@ -2309,10 +2300,10 @@ body.is-mnav-open{ overflow: hidden; }
     font-size: 13px;
     line-height: 1.7;
 
-    max-width: 320px;     /* ✅ 폭 줄여 자연스러운 2줄 유도 */
+    max-width: 320px;   
     margin: 0 auto;
     text-align: center;
-    word-break: keep-all; /* ✅ 한글 깨짐 방지 */
+    word-break: keep-all; 
   }
 }
 
@@ -2335,25 +2326,23 @@ body.is-mnav-open{ overflow: hidden; }
   margin-bottom: 26px;
 }
 
-/* 전체 래퍼: 좌우 여백(데스크탑) */
+
 .tourWrap{
   position: relative;
   width: 100%;
   padding: 0 90px;
   box-sizing: border-box;
-
-  /* ✅ 모바일 가로 스크롤 방지(안전) */
   overflow: hidden;
 }
 
-/* Swiper */
+
 .tourSwiper{
   width: 100%;
   padding: 12px 0 10px;
   box-sizing: border-box;
 }
 
-/* Slide 카드 */
+
 .tourSwiper .swiper-slide{
   border-radius: 22px;
   overflow: hidden;
@@ -2364,10 +2353,10 @@ body.is-mnav-open{ overflow: hidden; }
   transition: transform .45s ease, opacity .45s ease;
   will-change: transform, opacity;
 
-  /* ❌ width:100% 제거(스와이퍼가 너비 계산을 함) */
+
 }
 
-/* 이미지 */
+
 .tourSwiper .swiper-slide img{
   display: block;
   width: 100%;
@@ -2375,7 +2364,7 @@ body.is-mnav-open{ overflow: hidden; }
   object-fit: cover;
 }
 
-/* 활성(가운데) */
+
 .tourSwiper .swiper-slide-active{
   transform: scale(1.05);
   opacity: 1;
@@ -2440,7 +2429,7 @@ body.is-mnav-open{ overflow: hidden; }
 
   .tourSwiper .swiper-slide{
     border-radius: 18px;
-    transform: scale(0.90);   /* 모바일은 살짝 덜 줄여서 “프리미엄” */
+    transform: scale(0.90);   
     opacity: 0.55;
   }
 
@@ -2524,7 +2513,7 @@ body.is-mnav-open{ overflow: hidden; }
 .location__hint{
   display: block;
   margin-top: 6px;
-  font-size: 13px;
+  font-size: 16px;
   color: rgba(27,27,27,.60);
 }
 
@@ -2536,7 +2525,7 @@ body.is-mnav-open{ overflow: hidden; }
 }
 .location__tel:hover{ color: var(--c-brown); }
 
-/* hours */
+
 .hours{
   display: grid;
   gap: 8px;
@@ -2545,7 +2534,7 @@ body.is-mnav-open{ overflow: hidden; }
   display: flex;
   justify-content: space-between;
   gap: 16px;
-  font-size: 14px;
+  font-size: 15px;
 }
 .hours__line span{ color: rgba(27,27,27,.70); }
 .hours__line strong{ color: rgba(27,27,27,.92); }
@@ -2564,9 +2553,9 @@ body.is-mnav-open{ overflow: hidden; }
   grid-template-columns: 1fr 1fr;
   gap: 12px;
 }
+
 .btn--wide{ width: 100%; }
 
-/* quick row */
 .location__quick{
   margin-top: 18px;
   display: flex;
@@ -2711,7 +2700,7 @@ body.is-mnav-open{ overflow: hidden; }
 }
 
 /* =========================================================
-  LOCATION QUICK (Right Floating) - Desktop only
+  LOCATION QUICK
 ========================================================= */
 .locationQuick{
   position: absolute;
@@ -2842,7 +2831,6 @@ body.is-mnav-open{ overflow: hidden; }
   padding: 48px 0 36px;
 }
 
-/* ✅ flex 레이아웃 유지 (기존 디자인 그대로) */
 .footer__cols{
   display: flex;
   align-items: flex-start;
@@ -2905,8 +2893,6 @@ body.is-mnav-open{ overflow: hidden; }
     row-gap: 6px;
   }
 
-  /* ✅ flex라서 grid-template-columns 제거(중복/충돌 제거) */
-  /* .footer__cols는 그대로 flex 유지 */
 }
 
 @media (max-width: 768px){
@@ -2930,15 +2916,15 @@ body.is-mnav-open{ overflow: hidden; }
     gap: 8px;
   }
   .location__grid{
-    gap: 16px; /* 기존 28에서 모바일만 살짝 축소해 밀도 정리 */
+    gap: 16px; 
   }
 
-  /* (2) 정보카드 내부 리듬: 제목/행/버튼 간격 정돈 */
+
   .location__name{
     margin-bottom: 14px;
   }
   .location__row{
-    padding: 12px 0; /* 모바일에서 줄 간격 살짝 컴팩트 */
+    padding: 12px 0; 
   }
   .location__cta{
     margin-top: 14px;
@@ -2949,7 +2935,7 @@ body.is-mnav-open{ overflow: hidden; }
     gap: 10px;
   }
 
-  /* (3) 지도 카드: 위아래 여백 균형 + 바 영역 정렬 안정 */
+
   .location__mapWrap{
     padding: 10px;
   }
