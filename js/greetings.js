@@ -1,15 +1,22 @@
+// Greeting section reveal (premium underline animation)
 (() => {
-  const greeting = document.querySelector("#greeting .greeting__text");
+  const greeting = document.querySelector(".greeting__text");
   if (!greeting) return;
 
-  const io = new IntersectionObserver(
-    ([entry]) => {
-      if (!entry.isIntersecting) return;
-      greeting.classList.add("is-inview");
-      io.disconnect(); // 한 번만
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          greeting.classList.add("is-inview");
+          observer.disconnect(); // ✅ 한 번만 실행
+        }
+      });
     },
-    { threshold: 0.35 }
+    {
+      threshold: 0.25,        // 25% 보이면 시작
+      rootMargin: "0px 0px -80px 0px" // 살짝 여유
+    }
   );
 
-  io.observe(greeting);
+  observer.observe(greeting);
 })();
