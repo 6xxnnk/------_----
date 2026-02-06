@@ -978,7 +978,11 @@ body.is-mnav-open{ overflow: hidden; }
   object-position: center;
   display: block;
 }
-
+.dcard__photo img{
+  image-rendering: auto;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
 /* Reverse */
 .dcard--reverse .dcard__grid{
   grid-template-columns: 1fr 440px;
@@ -1000,13 +1004,24 @@ body.is-mnav-open{ overflow: hidden; }
   gap: 40px;
 }
 
-.dcard__label{
-  margin: 0 0 12px;
-  font-size: 13px;
+.dcard__labelMark{
+  margin: 0 0 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  padding: 0 12px;
+  border-radius: 999px;
   font-weight: 900;
-  color: rgba(27,27,27,.70);
+  font-size: 12px;
+  letter-spacing: .02em;
+  color: rgba(34,73,46,.92);
+  background: rgba(34,73,46,.08);
+  border: 1px solid rgba(34,73,46,.12);
 }
-
+@media (max-width:600px){
+  .dcard__labelMark{ display:none; }
+}
 .dcard__list{
   margin: 0;
   padding: 0;
@@ -2330,15 +2345,18 @@ body.is-mnav-open{ overflow: hidden; }
 .tourWrap{
   position: relative;
   width: 100%;
-  padding: 0 90px;
+  padding: 0 40px;    
+  max-width: 1600px;  
+  margin: 0 auto;
   box-sizing: border-box;
   overflow: hidden;
+  
 }
 
 
 .tourSwiper{
   width: 100%;
-  padding: 12px 0 10px;
+  padding: 24px 0 16px;
   box-sizing: border-box;
 }
 
@@ -2346,27 +2364,27 @@ body.is-mnav-open{ overflow: hidden; }
 .tourSwiper .swiper-slide{
   border-radius: 22px;
   overflow: hidden;
-
-  transform: scale(0.86);
-  opacity: 0.45;
-
+  transform: scale(0.92);
+  opacity: 0.5;
   transition: transform .45s ease, opacity .45s ease;
   will-change: transform, opacity;
-
-
+  height: 480px;
+  display: flex;
+  align-items: center;
 }
 
 
 .tourSwiper .swiper-slide img{
-  display: block;
   width: 100%;
-  height: 340px;
+  height: 420px;      
   object-fit: cover;
-}
+  object-position: center;
+  display: block;
+  border-radius: 20px;}
 
 
 .tourSwiper .swiper-slide-active{
-  transform: scale(1.05);
+  transform: scale(1.12);
   opacity: 1;
   z-index: 2;
 }
@@ -2414,31 +2432,56 @@ body.is-mnav-open{ overflow: hidden; }
 
 /* ✅ Tablet */
 @media (max-width: 1024px){
-  .tourWrap{ padding: 0 48px; }
-  .tourSwiper .swiper-slide img{ height: 300px; }
-  .tourBar{ width: min(420px, 100%); }
+  .tourWrap{
+    padding: 0 24px;
+    max-width: 100%;
+  }
+
+  .tourSwiper{
+    padding: 18px 0 12px;
+  }
+
+  .tourSwiper .swiper-slide{
+    height: 360px;
+    transform: scale(0.94);
+    opacity: 0.55;
+    border-radius: 20px;
+  }
+
+  .tourSwiper .swiper-slide img{
+    border-radius: 18px;
+  }
+
+  .tourSwiper .swiper-slide-active{
+    transform: scale(1.04);
+  }
 }
 
 /* ✅ Mobile */
 @media (max-width: 768px){
-  .tourWrap{ padding: 0 18px; }
+  .tour__head{
+    margin-bottom: 18px;
+  }
+  .tourWrap{ padding: 0 14px; }
 
   .tourSwiper{
     padding: 8px 0 6px;
   }
 
   .tourSwiper .swiper-slide{
+    height: 240px;
+    transform: scale(0.97);
+    opacity: 0.75;
     border-radius: 18px;
-    transform: scale(0.90);   
-    opacity: 0.55;
   }
 
   .tourSwiper .swiper-slide-active{
     transform: scale(1.02);
+    opacity: 1;
   }
 
   .tourSwiper .swiper-slide img{
-    height: 240px;
+    border-radius: 16px;
   }
 
   .tourBar{
@@ -2453,7 +2496,7 @@ body.is-mnav-open{ overflow: hidden; }
 
 /* ✅ Small Mobile */
 @media (max-width: 480px){
-  .tourWrap{ padding: 0 14px; }
+  .tourWrap{ padding: 0 12px; }
   .tourSwiper .swiper-slide img{ height: 220px; }
 }
 
