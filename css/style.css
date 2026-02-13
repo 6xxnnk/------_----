@@ -2180,8 +2180,8 @@ body.is-mnav-open{ overflow: hidden; }
 
 .treatLayout{
   display: grid;
-  grid-template-columns: 1fr 500px;
-  gap: 60px;
+  grid-template-columns: minmax(0, 1fr) 420px;
+  gap: 56px;
   align-items: start;
   margin-top: 32px;
 }
@@ -2319,7 +2319,10 @@ body.is-mnav-open{ overflow: hidden; }
 .treatBtn--next span{ transform: rotate(-45deg); margin-right: 2px; }
 
 /* RIGHT : thumbs */
-.treatThumbs{ position: relative; }
+.treatThumbs{ 
+position: relative;
+padding-top: 12px;
+border-left: 1px solid rgba(34,73,46,.08); }
 
 .treatThumbSwiper{
   width: 100%;
@@ -2328,7 +2331,7 @@ body.is-mnav-open{ overflow: hidden; }
 
 
 .treatThumbSwiper .swiper-slide{
-  width: calc((100% - 16px) / 3); /* ✅ 데스크탑: 3장 고정 */
+  width: calc((100% - 16px) / 2); 
   height: 300px;
   border-radius: 16px;
   overflow: hidden;
