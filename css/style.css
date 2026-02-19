@@ -198,10 +198,12 @@ html{
 
   background: linear-gradient(
     to left,
-    rgba(34,73,46,0.85) 0%,
-    rgba(34,73,46,0.75) 30%,
-    rgba(34,73,46,0.45) 55%,
-    rgba(34,73,46,0.15) 75%,
+    rgba(34,73,46,0.92) 0%,
+    rgba(34,73,46,0.82) 20%,
+    rgba(34,73,46,0.65) 35%,
+    rgba(34,73,46,0.35) 50%,
+    rgba(34,73,46,0.1) 65%,
+    rgba(34,73,46,0) 75%,
     rgba(34,73,46,0) 100%
   );
 }
@@ -210,10 +212,11 @@ html{
   .heroSlide__bg::after{
     background: linear-gradient(
       to left,
-      rgba(34,73,46,0.9) 0%,
-      rgba(34,73,46,0.75) 35%,
-      rgba(34,73,46,0.45) 65%,
-      rgba(34,73,46,0.15) 85%,
+      rgba(34,73,46,0.95) 0%,
+      rgba(34,73,46,0.85) 25%,
+      rgba(34,73,46,0.6) 45%,
+      rgba(34,73,46,0.25) 65%,
+      rgba(34,73,46,0) 80%,
       rgba(34,73,46,0) 100%
     );
   }
@@ -224,20 +227,15 @@ html{
   .heroSlide__bg::after{
     background: linear-gradient(
       to top,
-      rgba(34,73,46,0.95) 0%,
-      rgba(34,73,46,0.75) 35%,
-      rgba(34,73,46,0.4) 60%,
-      rgba(34,73,46,0) 100%
+      rgba(34,73,46,0.98) 0%,
+      rgba(34,73,46,0.85) 25%,
+      rgba(34,73,46,0.6) 45%,
+      rgba(34,73,46,0.25) 65%,
+      rgba(34,73,46,0) 80%
     );
   }
 
 }
-/* 텍스트가 위에 오도록 */
-.heroSlide__copy{
-  position: relative;
-  z-index: 2;
-}
-
 
 
 
@@ -809,6 +807,9 @@ body.is-mnav-open{ overflow: hidden; }
   border-radius: 18px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0,0,0,0.274);
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
 }
 .aboutItem--left .aboutItem__media{ justify-self: end; }
 .aboutItem--right .aboutItem__media{ justify-self: start; }
@@ -818,6 +819,13 @@ body.is-mnav-open{ overflow: hidden; }
   width:100%;
   height:210px;
   object-fit: cover;
+    /* ✅ 이미지 자체는 절대 흔들리지 않게 */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+
+  /* ✅ 혹시 다른 곳에서 transform 먹는 것 방지 */
+  will-change: auto;
 }
 
 /* =========================================================
@@ -3033,45 +3041,38 @@ border-left: 1px solid rgba(34,73,46,.08); }
 }
 /* ✅ Mobile */
 @media (max-width: 768px){
-  .tour__head{
-    margin-bottom: 18px;
+  .tourSwiper .swiper-wrapper{
+    align-items: stretch; /* ✅ 핵심 */
   }
-  .tourWrap{ padding: 0 14px; }
-
-  .tourSwiper{
-    padding: 8px 0 6px;
-  }
-
   .tourSwiper .swiper-slide{
     height: 240px;
-    transform: scale(0.97);
-    opacity: 0.75;
-    border-radius: 18px;
-  }
-
-  .tourSwiper .swiper-slide-active{
-    transform: scale(1.02);
+    display: block;          /* ✅ flex 제거 */
+    transform: scale(1);     /* ✅ 모바일은 확대 효과 제거 */
     opacity: 1;
   }
 
+  .tourSwiper .swiper-slide-active{
+    transform: scale(1);
+  }
+
   .tourSwiper .swiper-slide img{
-    border-radius: 16px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
-
-  .tourBar{
-    width: min(320px, 100%);
-    margin-top: 14px;
-    gap: 10px;
-  }
-
-  .tourProgress{ height: 3px; }
-  .tourCount{ font-size: 12px; }
 }
-
 /* ✅ Small Mobile */
 @media (max-width: 480px){
   .tourWrap{ padding: 0 12px; }
-  .tourSwiper .swiper-slide img{ height: 220px; }
+  .tourSwiper .swiper-slide{
+    height: 220px;          /* 원하면 220~240 조절 가능 */
+    align-items: stretch;
+  }
+
+  .tourSwiper .swiper-slide img{
+    height: 100% !important; /* ✅ 기존 220px 고정 덮어쓰기 */
+  }
 }
 
 
