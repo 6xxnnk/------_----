@@ -1,62 +1,73 @@
-// Treat section (main + thumbs) + bottom bar + text transition
+// Treat Section Swiper
 (() => {
   const section = document.querySelector("#treat");
   if (!section) return;
 
   const mainEl = section.querySelector(".treatMainSwiper");
   const thumbEl = section.querySelector(".treatThumbSwiper");
-  if (!mainEl || !thumbEl) return;
 
-  const mainWrap = section.querySelector(".treatMain");
-  const fill = section.querySelector(".treatProgress__fill");
-  const cur = section.querySelector(".treatCount__current");
-  const total = section.querySelector(".treatCount__total");
   const prevBtn = section.querySelector(".treatBtn--prev");
   const nextBtn = section.querySelector(".treatBtn--next");
 
-  // ✅ Thumbs: 데스크탑/태블릿 동일(3장 고정, 스와이프/클릭 가능)
-  const thumbs = new Swiper(thumbEl, {
-    direction: "horizontal",
-    slidesPerView: 2,
-    spaceBetween: 8,
-    watchSlidesProgress: true,
-    allowTouchMove: true,
-    slideToClickedSlide: true,
-    resistanceRatio: 0.75,
-  });
+  const currentEl = section.querySelector(".treatCount__current");
+  const totalEl = section.querySelector(".treatCount__total");
+  const fillEl = section.querySelector(".treatProgress__fill");
 
-  // ✅ Main
-  const main = new Swiper(mainEl, {
+  if (!mainEl) return;
+
+  /* =========================
+     THUMBS (Desktop Only)
+  ========================== */
+  let thumbsSwiper = null;
+
+  if (thumbEl && window.innerWidth > 1024) {
+    thumbsSwiper = new Swiper(thumbEl, {
+      slidesPerView: 2,
+      spaceBetween: 12,
+      watchSlidesProgress: true,
+      slideToClickedSlide: true,
+    });
+  }
+
+  /* =========================
+     MAIN
+  ========================== */
+  const mainSwiper = new Swiper(mainEl, {
     speed: 650,
     slidesPerView: 1,
     spaceBetween: 0,
     effect: "slide",
-    thumbs: { swiper: thumbs },
+
+    thumbs: thumbsSwiper ? { swiper: thumbsSwiper } : undefined,
+
+    navigation: {
+      prevEl: prevBtn,
+      nextEl: nextBtn,
+    },
 
     on: {
       init(swiper) {
-        const t = swiper.slides.length;
-        if (total) total.textContent = String(t);
-        updateBar(swiper);
+        updateUI(swiper);
       },
-
-      slideChangeTransitionStart() {
-        mainWrap?.classList.add("is-animating");
-      },
-      slideChangeTransitionEnd(swiper) {
-        mainWrap?.classList.remove("is-animating");
-        updateBar(swiper);
-      },
-    },
+      slideChange(swiper) {
+        updateUI(swiper);
+      }
+    }
   });
 
-  prevBtn?.addEventListener("click", () => main.slidePrev());
-  nextBtn?.addEventListener("click", () => main.slideNext());
+  /* =========================
+     UI UPDATE
+  ========================== */
+  function updateUI(swiper) {
+    const total = swiper.slides.length;
+    const index = swiper.realIndex + 1;
 
-  function updateBar(swiper) {
-    const t = swiper.slides.length;
-    const i = (swiper.realIndex ?? swiper.activeIndex) + 1;
-    if (cur) cur.textContent = String(i);
-    if (fill) fill.style.width = `${(i / t) * 100}%`;
+    if (totalEl) totalEl.textContent = total;
+    if (currentEl) currentEl.textContent = index;
+
+    if (fillEl) {
+      fillEl.style.width = `${(index / total) * 100}%`;
+    }
   }
+
 })();
