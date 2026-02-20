@@ -1309,7 +1309,24 @@
     </div>
   </div>
 </footer>
+<!-- Popup Modal -->
+<div class="popup" id="noticePopup" aria-hidden="true">
+  <div class="popup__backdrop" data-popup-close></div>
 
+  <div class="popup__panel" role="dialog" aria-modal="true" aria-label="공지 팝업">
+    <button class="popup__close" type="button" aria-label="팝업 닫기" data-popup-close>×</button>
+
+    <!-- ✅ 여기 이미지 경로만 너 프로젝트에 맞게 수정 -->
+    <a href="./img/26년3월.jpg" target="_blank" rel="noopener" class="popup__imgLink" aria-label="이미지 크게 보기">
+      <img class="popup__img" src="./img/popup.jpg" alt="3월 진료 안내 팝업 이미지">
+    </a>
+
+    <div class="popup__actions">
+      <button class="popup__btn popup__btn--ghost" type="button" data-popup-hide-today>오늘 하루 보지 않기</button>
+      <button class="popup__btn popup__btn--primary" type="button" data-popup-close>닫기</button>
+    </div>
+  </div>
+</div>
 
 
   <!-- Swiper JS -->
@@ -1338,5 +1355,7 @@
   <script src="./js/tourSwiper.js"></script>
 
   <script src="./js/locationRoughmap.js"></script>
+  <script src="./js/popup.js"></script>
+
 </body>
 </html>
